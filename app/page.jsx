@@ -178,6 +178,11 @@ export default function Page() {
             <div>
               <h2 className="text-3xl font-semibold leading-tight md:text-5xl">투자·제조·유통 협업 문의</h2>
               <p className="mt-6 text-lg leading-9 text-white/65">SVAS는 현재 제품 개발, 제조 파트너십, 초기 투자 및 유통 협업 논의를 열어두고 있습니다.</p>
+              <div className="mt-6 rounded-xl border border-white/10 bg-[#05101d] p-5 text-sm leading-7 text-white/70">
+  <p>Founder. 김태영</p>
+  <p>SVAS / KOMEL Project</p>
+  <p>Email. roekty@gmail.com</p>
+</div>
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               <a href={`mailto:${contactEmail}?subject=SVAS KOMEL 투자·제조 협업 문의`} className="flex items-center justify-center gap-3 rounded-xl bg-blue-400 px-6 py-5 text-sm font-semibold hover:bg-blue-300"><Mail className="h-5 w-5" />투자·제조 검토 문의하기</a>
