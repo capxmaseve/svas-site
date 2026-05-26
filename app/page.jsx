@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 
 export default function Page() {
-  const contactEmail = "contact@svas.kr";
+  const contactEmail = "roekty@gmail.com";
   const heroImage = "/hero-breath.png";
 
   const problemItems = [
