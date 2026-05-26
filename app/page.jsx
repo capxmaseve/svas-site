@@ -1,7 +1,14 @@
-import React from "react";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   Bell,
-  ...
+  ClipboardList,
+  Factory,
+  Globe2,
+  Handshake,
+  Mail,
+  ShieldCheck,
+  Target,
+  Users,
+  Wind,
+  X,
 } from "lucide-react";
