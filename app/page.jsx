@@ -176,12 +176,12 @@ export default function Page() {
           <SectionLabel number="07" title="Contact" />
           <div className="mt-8 grid gap-10 lg:grid-cols-[0.78fr_1.22fr]">
             <div>
-              <h2 className="text-3xl font-semibold leading-tight md:text-5xl">투자·제조·유통 협업 문의</h2>
+           <h2 className="text-3xl font-semibold leading-tight md:text-5xl">투자·제조 협업 문의</h2>
               <p className="mt-6 text-lg leading-9 text-white/65">SVAS는 현재 제품 개발, 제조 파트너십, 초기 투자 및 유통 협업 논의를 열어두고 있습니다.</p>
               <div className="mt-6 rounded-xl border border-white/10 bg-[#05101d] p-5 text-sm leading-7 text-white/70">
-  <p>Founder. 김태영</p>
-  <p>SVAS / KOMEL Project</p>
-  <p>Email. roekty@gmail.com</p>
+<p>Founder. 김태영</p>
+<p>Project. SVAS / KOMEL</p>
+<p>Email. roekty@gmail.com</p>
 </div>
             </div>
             <div className="grid gap-4 md:grid-cols-2">
