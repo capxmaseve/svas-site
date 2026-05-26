@@ -1,3 +1,7 @@
 import React from "react";
-Commit changes...
-  Commit changes
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Bell,
+  ...
+} from "lucide-react";
