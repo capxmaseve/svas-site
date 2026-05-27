@@ -202,10 +202,14 @@ export default function Page() {
               </ul>
 
               <a
-                href={`mailto:${contactEmail}?subject=SVAS KOMEL MVP 후원 의향 등록`}
-                className="mt-8 flex items-center justify-center rounded-xl bg-blue-400 px-6 py-5 text-sm font-semibold text-white transition hover:bg-blue-300"
-              >
-                MVP 후원 의향 등록하기
+            <a
+  href="https://docs.google.com/forms/d/e/1FAIpQLSfbO6nuetMo9Hj-V39sEsQUXuuVLbBwi_-elaeJyHOmYSG5UQ/viewform"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-8 flex items-center justify-center rounded-xl bg-blue-400 px-6 py-5 text-sm font-semibold text-white transition hover:bg-blue-300"
+>
+  MVP 후원 의향 등록하기
+</a>
               </a>
 
               <p className="mt-5 text-xs leading-6 text-white/40">
