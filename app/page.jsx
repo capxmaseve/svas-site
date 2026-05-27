@@ -201,8 +201,8 @@ export default function Page() {
                 <li>• 투자·제조·브랜드 협업 문의 가능</li>
               </ul>
 
-              <a
-            <a
+
+<a
   href="https://docs.google.com/forms/d/e/1FAIpQLSfbO6nuetMo9Hj-V39sEsQUXuuVLbBwi_-elaeJyHOmYSG5UQ/viewform"
   target="_blank"
   rel="noopener noreferrer"
@@ -210,7 +210,6 @@ export default function Page() {
 >
   MVP 후원 의향 등록하기
 </a>
-              </a>
 
               <p className="mt-5 text-xs leading-6 text-white/40">
                 본 등록은 정식 결제 또는 후원금 수령이 아닌, 후원 의향 확인을 위한 사전 문의입니다.
