@@ -170,10 +170,54 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <section id="mvp-support" className="bg-[#08182a] px-6 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-blue-300/15 bg-blue-300/[0.06] p-8 md:p-12">
+          <SectionLabel number="07" title="MVP Support" />
 
+          <div className="mt-8 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <h2 className="text-3xl font-semibold leading-tight md:text-5xl">
+                MVP 후원 의향 등록
+              </h2>
+
+              <p className="mt-6 text-lg leading-9 text-white/65">
+                SVAS/KOMEL은 비접촉 리프레시 웰니스 경험을 위한 초기 제품 프로젝트입니다.
+                현재 정식 후원금 수령 및 제품 판매는 진행하지 않으며,
+                MVP 제작을 위한 초기 서포터와 후원 의향자를 모집하고 있습니다.
+              </p>
+
+              <p className="mt-5 text-sm leading-7 text-white/45">
+                개인 후원 또는 협업 의향이 있으신 분께는 문의 후 개별 안내드립니다.
+              </p>
+            </div>
+
+            <div className="rounded-[1.6rem] border border-white/10 bg-[#05101d] p-7">
+              <h3 className="text-2xl font-semibold">초기 서포터 참여</h3>
+
+              <ul className="mt-6 space-y-4 text-sm leading-7 text-white/65">
+                <li>• MVP 제작 후원 의향 등록</li>
+                <li>• 초기 사용자 테스트 우선 안내</li>
+                <li>• 공식 후원/펀딩 진행 시 우선 알림</li>
+                <li>• 투자·제조·브랜드 협업 문의 가능</li>
+              </ul>
+
+              <a
+                href={`mailto:${contactEmail}?subject=SVAS KOMEL MVP 후원 의향 등록`}
+                className="mt-8 flex items-center justify-center rounded-xl bg-blue-400 px-6 py-5 text-sm font-semibold text-white transition hover:bg-blue-300"
+              >
+                MVP 후원 의향 등록하기
+              </a>
+
+              <p className="mt-5 text-xs leading-6 text-white/40">
+                본 등록은 정식 결제 또는 후원금 수령이 아닌, 후원 의향 확인을 위한 사전 문의입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="contact" className="bg-[#06111f] px-6 py-24 lg:px-8">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 md:p-12">
-          <SectionLabel number="07" title="Contact" />
+          <SectionLabel number="08" title="Contact" />
           <div className="mt-8 grid gap-10 lg:grid-cols-[0.78fr_1.22fr]">
             <div>
            <h2 className="text-3xl font-semibold leading-tight md:text-5xl">투자·제조 협업 문의</h2>
