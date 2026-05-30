@@ -1,22 +1,23 @@
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+
 export const metadata = {
-icons: {
-  icon: "/icon.png",
-  shortcut: "/favicon.ico",
-  apple: "/apple-icon.png",
-},
   title: "SVAS KOMEL Project",
   description: "비접촉 리프레시 웰니스 브랜드 프로젝트",
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-   <body>
-  {children}
-  <Analytics />
-</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
