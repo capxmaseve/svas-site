@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -20,8 +20,23 @@ import {
 
 export default function Page() {
   const contactEmail = "roekty@gmail.com";
+  const [copied, setCopied] = useState(false);
+
   const formLink =
     "https://docs.google.com/forms/d/e/1FAIpQLSfbO6nuetMo9Hj-V39sEsQUXuuVLbBwi_-elaeJyHOmYSG5UQ/viewform";
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(contactEmail);
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 2500);
+    } catch (error) {
+      alert(`문의 이메일: ${contactEmail}`);
+    }
+  };
 
   const nav = [
     ["WHY NOW", "#why"],
@@ -295,18 +310,26 @@ export default function Page() {
                     {contactEmail}
                   </p>
                   <p className="mt-2 text-xs leading-6 text-white/45">
-                    메일 앱 자동 실행 없이, 이메일 주소를 직접 복사해서 문의할
-                    수 있습니다.
+                    버튼을 누르면 이메일 주소가 복사됩니다. Gmail, 네이버메일,
+                    회사메일 등에 붙여넣어 문의할 수 있습니다.
                   </p>
                 </div>
+
+                {copied && (
+                  <p className="mt-3 rounded-xl border border-blue-400/30 bg-blue-500/10 px-4 py-3 text-sm font-semibold text-blue-200">
+                    이메일 주소가 복사되었습니다. 메일 앱이나 Gmail에 붙여넣어
+                    문의해 주세요.
+                  </p>
+                )}
               </div>
 
-              <a
-                href="#contact-email"
+              <button
+                type="button"
+                onClick={copyEmail}
                 className="inline-flex items-center justify-center gap-3 rounded-xl border border-white/16 px-6 py-4 text-sm font-semibold hover:bg-white/10"
               >
-                문의 이메일 확인 <ArrowRight className="h-4 w-4" />
-              </a>
+                이메일 복사하기 <ArrowRight className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>
