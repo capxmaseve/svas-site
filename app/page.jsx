@@ -432,9 +432,12 @@ ${body}`;
                 </label>
                 <input
                   value={inquiry.name}
-                  -nChange={(e) =>
-                    setInquiry({ ...inquiry, name: e.target.value })
-                  }
+                  -nChange={(e) => {
+                    setInquiry({
+                      ...inquiry,
+                      name: e.target.value,
+                    });
+                  }}
                   placeholder="Your name"
                   className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm outline-none placeholder:text-white/28 focus:border-blue-400/50"
                 />
@@ -446,9 +449,12 @@ ${body}`;
                 </label>
                 <input
                   value={inquiry.email}
-                  -nChange={(e) =>
-                    setInquiry({ ...inquiry, email: e.target.value })
-                  }
+                  -nChange={(e) => {
+                    setInquiry({
+                      ...inquiry,
+                      email: e.target.value,
+                    });
+                  }}
                   placeholder="your@email.com"
                   className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm outline-none placeholder:text-white/28 focus:border-blue-400/50"
                 />
@@ -460,9 +466,12 @@ ${body}`;
                 </label>
                 <select
                   value={inquiry.type}
-                  -nChange={(e) =>
-                    setInquiry({ ...inquiry, type: e.target.value })
-                  }
+                  -nChange={(e) => {
+                    setInquiry({
+                      ...inquiry,
+                      type: e.target.value,
+                    });
+                  }}
                   className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b1524] px-4 py-3 text-sm outline-none focus:border-blue-400/50"
                 >
                   <option>Manufacturing / Prototype Inquiry</option>
@@ -480,9 +489,12 @@ ${body}`;
                 </label>
                 <textarea
                   value={inquiry.message}
-                  -nChange={(e) =>
-                    setInquiry({ ...inquiry, message: e.target.value })
-                  }
+                  -nChange={(e) => {
+                    setInquiry({
+                      ...inquiry,
+                      message: e.target.value,
+                    });
+                  }}
                   placeholder="Please write your message here."
                   rows={6}
                   className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm leading-6 outline-none placeholder:text-white/28 focus:border-blue-400/50"
