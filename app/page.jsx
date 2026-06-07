@@ -4,22 +4,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Bell,
   Briefcase,
   Car,
   CheckCircle2,
   Coffee,
-  EyeOff,
   Globe2,
-  Heart,
   Mail,
   Menu,
-  ShieldCheck,
   Snowflake,
   Target,
   Users,
   Wind,
-  X,
   BookOpen,
 } from "lucide-react";
 
@@ -64,7 +59,10 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-[#020914] text-white antialiased">
-      <section id="top" className="relative overflow-hidden border-b border-white/10">
+      <section
+        id="top"
+        className="relative overflow-hidden border-b border-white/10"
+      >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_16%,rgba(37,99,235,0.36),transparent_34%),radial-gradient(circle_at_76%_36%,rgba(59,130,246,0.22),transparent_32%),linear-gradient(180deg,#020914,#04111f_65%,#020914)]" />
         <div className="absolute right-[8%] top-[18%] hidden h-[360px] w-[150px] rotate-[-3deg] rounded-[4rem] bg-black/90 shadow-[0_0_90px_rgba(59,130,246,0.65)] blur-[0.2px] md:block" />
         <div className="absolute right-[7%] top-[22%] hidden h-[310px] w-[120px] rotate-[-3deg] rounded-[4rem] bg-gradient-to-b from-white/10 via-black to-black opacity-45 md:block" />
@@ -86,7 +84,7 @@ export default function Page() {
           </nav>
 
           <a
-            href={`mailto:${contactEmail}?subject=SVAS KOMEL 투자·제조 협업 문의`}
+            href="#contact"
             className="hidden rounded-lg border border-blue-400/45 px-4 py-2 text-xs font-semibold text-blue-100 hover:bg-blue-400/10 lg:block"
           >
             INVESTOR & PARTNER
@@ -131,7 +129,7 @@ export default function Page() {
               </a>
 
               <a
-                href={`mailto:${contactEmail}?subject=SVAS KOMEL 투자·제조 협업 문의`}
+                href="#contact"
                 className="inline-flex items-center justify-center gap-3 rounded-xl border border-white/18 bg-white/[0.03] px-7 py-4 text-sm font-semibold text-white/90 transition hover:bg-white/10"
               >
                 Investor & Manufacturing Inquiry{" "}
@@ -160,9 +158,9 @@ export default function Page() {
         <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr]">
           <IconOrb icon={Wind} />
           <p className="text-lg leading-9 text-white/68">
-            현대인은 집중 전환과 기분 환기를 위해 카페인, 흡연, 향
-            제품에 의존하고 있습니다. 하지만 위생적이고 자연스럽게 사용할
-            수 있는 개인 리프레시 제품은 부족합니다.
+            현대인은 집중 전환과 기분 환기를 위해 카페인, 흡연, 향 제품에
+            의존하고 있습니다. 하지만 위생적이고 자연스럽게 사용할 수 있는
+            개인 리프레시 제품은 부족합니다.
           </p>
         </div>
       </Section>
@@ -188,7 +186,12 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section id="direction" number="03" eyebrow="DIRECTION" title="SVAS의 방향">
+      <Section
+        id="direction"
+        number="03"
+        eyebrow="DIRECTION"
+        title="SVAS의 방향"
+      >
         <div className="grid gap-10 lg:grid-cols-[0.5fr_0.5fr] lg:items-center">
           <p className="text-lg leading-9 text-white/68">
             SVAS는 코에 직접 닿지 않는 비접촉 사용 경험으로 개인 리프레시
@@ -217,10 +220,18 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section id="stage" number="05" eyebrow="CURRENT STAGE" title="현재 준비된 것">
+      <Section
+        id="stage"
+        number="05"
+        eyebrow="CURRENT STAGE"
+        title="현재 준비된 것"
+      >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {stages.map((item) => (
-            <div key={item} className="flex items-center gap-3 text-sm text-white/70">
+            <div
+              key={item}
+              className="flex items-center gap-3 text-sm text-white/70"
+            >
               <CheckCircle2 className="h-5 w-5 text-blue-400" />
               {item}
             </div>
@@ -260,21 +271,41 @@ export default function Page() {
               <p className="text-sm font-semibold tracking-[0.24em] text-blue-400">
                 07&nbsp;&nbsp; CONTACT
               </p>
-              <h2 className="mt-5 text-3xl font-semibold">투자·제조 협업 문의</h2>
+              <h2 className="mt-5 text-3xl font-semibold">
+                투자·제조 협업 문의
+              </h2>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-center">
-              <p className="text-sm leading-7 text-white/62">
-                투자·제조·유통 협업자는 이메일을 통해 문의해 주세요. 제품
-                구조, 제조 방식, 세부 자료는 공개 사이트에 노출하지 않으며,
-                협업 논의 단계에서 별도 공유합니다.
-              </p>
+            <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+              <div>
+                <p className="text-sm leading-7 text-white/62">
+                  투자·제조·유통 협업자는 아래 이메일로 문의해 주세요. 제품
+                  구조, 제조 방식, 세부 자료는 공개 사이트에 노출하지 않으며,
+                  협업 논의 단계에서 별도 공유합니다.
+                </p>
+
+                <div
+                  id="contact-email"
+                  className="mt-5 rounded-2xl border border-blue-400/20 bg-blue-500/[0.06] px-5 py-4"
+                >
+                  <p className="text-xs font-semibold tracking-[0.2em] text-blue-300/80">
+                    EMAIL
+                  </p>
+                  <p className="mt-2 text-lg font-semibold text-blue-200">
+                    {contactEmail}
+                  </p>
+                  <p className="mt-2 text-xs leading-6 text-white/45">
+                    메일 앱 자동 실행 없이, 이메일 주소를 직접 복사해서 문의할
+                    수 있습니다.
+                  </p>
+                </div>
+              </div>
 
               <a
-                href={`mailto:${contactEmail}?subject=SVAS KOMEL 투자·제조 협업 문의`}
+                href="#contact-email"
                 className="inline-flex items-center justify-center gap-3 rounded-xl border border-white/16 px-6 py-4 text-sm font-semibold hover:bg-white/10"
               >
-                투자·제조 협업 문의 <ArrowRight className="h-4 w-4" />
+                문의 이메일 확인 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -307,12 +338,16 @@ function Section({ id, number, eyebrow, title, children }) {
     <section id={id} className="px-6 py-3 lg:px-8">
       <div className="mx-auto max-w-7xl rounded-3xl border border-white/10 bg-white/[0.025] p-8 shadow-[0_0_80px_rgba(0,0,0,0.18)] md:p-10">
         <div className="mb-7 flex items-start gap-8">
-          <div className="min-w-12 text-2xl font-semibold text-blue-400">{number}</div>
+          <div className="min-w-12 text-2xl font-semibold text-blue-400">
+            {number}
+          </div>
           <div>
             <p className="text-xs font-semibold tracking-[0.25em] text-blue-400/80">
               {eyebrow}
             </p>
-            <h2 className="mt-3 text-2xl font-semibold md:text-3xl">{title}</h2>
+            <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
+              {title}
+            </h2>
           </div>
         </div>
         {children}
