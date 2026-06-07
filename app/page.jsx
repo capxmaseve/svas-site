@@ -16,27 +16,22 @@ import {
   Users,
   Wind,
   BookOpen,
+  X,
 } from "lucide-react";
 
 export default function Page() {
   const contactEmail = "roekty@gmail.com";
-  const [copied, setCopied] = useState(false);
-
   const formLink =
     "https://docs.google.com/forms/d/e/1FAIpQLSfbO6nuetMo9Hj-V39sEsQUXuuVLbBwi_-elaeJyHOmYSG5UQ/viewform";
 
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(contactEmail);
-      setCopied(true);
-
-      setTimeout(() => {
-        setCopied(false);
-      }, 2500);
-    } catch (error) {
-      alert(`문의 이메일: ${contactEmail}`);
-    }
-  };
+  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [inquiry, setInquiry] = useState({
+    name: "",
+    email: "",
+    type: "Manufacturing / Prototype Inquiry",
+    message: "",
+  });
 
   const nav = [
     ["WHY NOW", "#why"],
@@ -72,6 +67,65 @@ export default function Page() {
     "제조 및 시제품 제작 가능성 검토 중",
   ];
 
+  const subject = `SVAS Inquiry - ${inquiry.type}`;
+
+  const body = `Hello SVAS team,
+
+I would like to contact you regarding SVAS.
+
+Name:
+${inquiry.name || "-"}
+
+Email:
+${inquiry.email || "-"}
+
+Inquiry Type:
+${inquiry.type}
+
+Message:
+${inquiry.message || "-"}
+
+Website:
+https://www.svas.kr
+
+Thank you.`;
+
+  const encodedSubject = encodeURIComponent(subject);
+  const encodedBody = encodeURIComponent(body);
+
+  const emailLinks = {
+    gmail: `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=${encodedSubject}&body=${encodedBody}`,
+    outlook: `https://outlook.live.com/mail/0/deeplink/compose?to=${contactEmail}&subject=${encodedSubject}&body=${encodedBody}`,
+    yahoo: `https://compose.mail.yahoo.com/?to=${contactEmail}&subject=${encodedSubject}&body=${encodedBody}`,
+  };
+
+  const openEmailService = (service) => {
+    window.open(emailLinks[service], "_blank", "noopener,noreferrer");
+  };
+
+  const copyInquiry = async () => {
+    const copyText = `To: ${contactEmail}
+Subject: ${subject}
+
+${body}`;
+
+    try {
+      await navigator.clipboard.writeText(copyText);
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 2500);
+    } catch (error) {
+      alert(copyText);
+    }
+  };
+
+  const openInquiryModal = () => {
+    setIsInquiryOpen(true);
+    setCopied(false);
+  };
+
   return (
     <main className="min-h-screen bg-[#020914] text-white antialiased">
       <section
@@ -98,12 +152,13 @@ export default function Page() {
             ))}
           </nav>
 
-          <a
-            href="#contact"
+          <button
+            type="button"
+            onClick={openInquiryModal}
             className="hidden rounded-lg border border-blue-400/45 px-4 py-2 text-xs font-semibold text-blue-100 hover:bg-blue-400/10 lg:block"
           >
             INVESTOR & PARTNER
-          </a>
+          </button>
 
           <Menu className="h-7 w-7 text-white/80 lg:hidden" />
         </header>
@@ -143,13 +198,14 @@ export default function Page() {
                 Register as Early Supporter <ArrowRight className="h-4 w-4" />
               </a>
 
-              <a
-                href="#contact"
+              <button
+                type="button"
+                onClick={openInquiryModal}
                 className="inline-flex items-center justify-center gap-3 rounded-xl border border-white/18 bg-white/[0.03] px-7 py-4 text-sm font-semibold text-white/90 transition hover:bg-white/10"
               >
                 Investor & Manufacturing Inquiry{" "}
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </button>
             </div>
 
             <p className="mt-8 max-w-xl text-xs leading-6 text-white/42">
@@ -294,41 +350,31 @@ export default function Page() {
             <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
               <div>
                 <p className="text-sm leading-7 text-white/62">
-                  투자·제조·유통 협업자는 아래 이메일로 문의해 주세요. 제품
-                  구조, 제조 방식, 세부 자료는 공개 사이트에 노출하지 않으며,
-                  협업 논의 단계에서 별도 공유합니다.
+                  투자·제조·유통 협업자는 문의 양식을 통해 연락해 주세요.
+                  제품 구조, 제조 방식, 세부 자료는 공개 사이트에 노출하지
+                  않으며, 협업 논의 단계에서 별도 공유합니다.
                 </p>
 
-                <div
-                  id="contact-email"
-                  className="mt-5 rounded-2xl border border-blue-400/20 bg-blue-500/[0.06] px-5 py-4"
-                >
+                <div className="mt-5 rounded-2xl border border-blue-400/20 bg-blue-500/[0.06] px-5 py-4">
                   <p className="text-xs font-semibold tracking-[0.2em] text-blue-300/80">
-                    EMAIL
+                    CONTACT EMAIL
                   </p>
                   <p className="mt-2 text-lg font-semibold text-blue-200">
                     {contactEmail}
                   </p>
                   <p className="mt-2 text-xs leading-6 text-white/45">
-                    버튼을 누르면 이메일 주소가 복사됩니다. Gmail, 네이버메일,
-                    회사메일 등에 붙여넣어 문의할 수 있습니다.
+                    메일 앱을 자동 실행하지 않습니다. 문의 양식 작성 후 원하는
+                    이메일 서비스를 선택하거나 내용을 복사할 수 있습니다.
                   </p>
                 </div>
-
-                {copied && (
-                  <p className="mt-3 rounded-xl border border-blue-400/30 bg-blue-500/10 px-4 py-3 text-sm font-semibold text-blue-200">
-                    이메일 주소가 복사되었습니다. 메일 앱이나 Gmail에 붙여넣어
-                    문의해 주세요.
-                  </p>
-                )}
               </div>
 
               <button
                 type="button"
-                onClick={copyEmail}
+                onClick={openInquiryModal}
                 className="inline-flex items-center justify-center gap-3 rounded-xl border border-white/16 px-6 py-4 text-sm font-semibold hover:bg-white/10"
               >
-                이메일 복사하기 <ArrowRight className="h-4 w-4" />
+                문의 양식 열기 <ArrowRight className="h-4 w-4" />
               </button>
             </div>
           </div>
@@ -352,6 +398,156 @@ export default function Page() {
           <p>© 2024 SVAS / KOMEL.</p>
         </div>
       </footer>
+
+      {isInquiryOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm">
+          <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-white/10 bg-[#07111f] p-6 shadow-[0_0_80px_rgba(37,99,235,0.22)]">
+            <button
+              type="button"
+              onClick={() => setIsInquiryOpen(false)}
+              className="absolute right-5 top-5 rounded-full border border-white/10 p-2 text-white/60 hover:bg-white/10 hover:text-white"
+              aria-label="Close inquiry form"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <p className="text-xs font-semibold tracking-[0.24em] text-blue-400">
+              SVAS INQUIRY FORM
+            </p>
+
+            <h3 className="mt-4 text-3xl font-semibold">
+              투자·제조 협업 문의
+            </h3>
+
+            <p className="mt-4 text-sm leading-7 text-white/60">
+              아래 양식을 작성한 뒤 사용하는 이메일 서비스를 선택해 주세요.
+              메일 앱은 자동 실행되지 않으며, 입력 내용은 사이트에 저장되지
+              않습니다.
+            </p>
+
+            <div className="mt-7 grid gap-4">
+              <div>
+                <label className="text-xs font-semibold tracking-[0.16em] text-white/50">
+                  NAME
+                </label>
+                <input
+                  value={inquiry.name}
+                  -nChange={(e) =>
+                    setInquiry({ ...inquiry, name: e.target.value })
+                  }
+                  placeholder="Your name"
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm outline-none placeholder:text-white/28 focus:border-blue-400/50"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold tracking-[0.16em] text-white/50">
+                  YOUR EMAIL
+                </label>
+                <input
+                  value={inquiry.email}
+                  -nChange={(e) =>
+                    setInquiry({ ...inquiry, email: e.target.value })
+                  }
+                  placeholder="your@email.com"
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm outline-none placeholder:text-white/28 focus:border-blue-400/50"
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold tracking-[0.16em] text-white/50">
+                  INQUIRY TYPE
+                </label>
+                <select
+                  value={inquiry.type}
+                  -nChange={(e) =>
+                    setInquiry({ ...inquiry, type: e.target.value })
+                  }
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-[#0b1524] px-4 py-3 text-sm outline-none focus:border-blue-400/50"
+                >
+                  <option>Manufacturing / Prototype Inquiry</option>
+                  <option>Investment / Partnership Inquiry</option>
+                  <option>Product Design / 3D Modeling</option>
+                  <option>Material / Fragrance Collaboration</option>
+                  <option>Early Supporter / Feedback</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-xs font-semibold tracking-[0.16em] text-white/50">
+                  MESSAGE
+                </label>
+                <textarea
+                  value={inquiry.message}
+                  -nChange={(e) =>
+                    setInquiry({ ...inquiry, message: e.target.value })
+                  }
+                  placeholder="Please write your message here."
+                  rows={6}
+                  className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm leading-6 outline-none placeholder:text-white/28 focus:border-blue-400/50"
+                />
+              </div>
+            </div>
+
+            <div className="mt-7 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+              <p className="text-xs font-semibold tracking-[0.16em] text-white/45">
+                SEND TO
+              </p>
+              <p className="mt-2 text-sm font-semibold text-blue-200">
+                {contactEmail}
+              </p>
+            </div>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <button
+                type="button"
+                onClick={() => openEmailService("gmail")}
+                className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold hover:bg-blue-500"
+              >
+                Open Gmail
+              </button>
+
+              <button
+                type="button"
+                onClick={() => openEmailService("outlook")}
+                className="rounded-xl border border-white/14 px-5 py-3 text-sm font-semibold hover:bg-white/10"
+              >
+                Open Outlook
+              </button>
+
+              <button
+                type="button"
+                onClick={() => openEmailService("yahoo")}
+                className="rounded-xl border border-white/14 px-5 py-3 text-sm font-semibold hover:bg-white/10"
+              >
+                Open Yahoo Mail
+              </button>
+
+              <button
+                type="button"
+                onClick={copyInquiry}
+                className="rounded-xl border border-blue-400/30 bg-blue-500/10 px-5 py-3 text-sm font-semibold text-blue-200 hover:bg-blue-500/20"
+              >
+                Copy Inquiry
+              </button>
+            </div>
+
+            {copied && (
+              <p className="mt-4 rounded-xl border border-blue-400/30 bg-blue-500/10 px-4 py-3 text-sm font-semibold text-blue-200">
+                문의 내용이 복사되었습니다. 원하는 이메일 서비스에 붙여넣어
+                보내주세요.
+              </p>
+            )}
+
+            <p className="mt-5 text-xs leading-6 text-white/38">
+              Product structure, manufacturing details, and protected materials
+              are not publicly disclosed. Additional details can be shared
+              during collaboration discussions.
+            </p>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
