@@ -1,21 +1,26 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Briefcase,
-  Car,
   CheckCircle2,
-  Coffee,
   Globe2,
+  Lock,
   Mail,
   Menu,
-  Snowflake,
-  Target,
-  Users,
+  MessageCircle,
+  RefreshCw,
+  Sparkles,
+  User,
   Wind,
+  Leaf,
+  Briefcase,
   BookOpen,
+  CloudSun,
+  Footprints,
+  FlaskConical,
+  Handshake,
+  Lightbulb,
 } from "lucide-react";
 
 export default function Page() {
@@ -23,61 +28,120 @@ export default function Page() {
   const formLink =
     "https://docs.google.com/forms/d/e/1FAIpQLSfbO6nuetMo9Hj-V39sEsQUXuuVLbBwi_-elaeJyHOmYSG5UQ/viewform";
 
-  const nav = [
-    ["WHY NOW", "#why"],
-    ["PROBLEM", "#problem"],
-    ["DIRECTION", "#direction"],
-    ["TARGET", "#target"],
-    ["STAGE", "#stage"],
-    ["SUPPORT", "#support"],
-    ["CONTACT", "#contact"],
+  const navItems = [
+    ["About", "#about"],
+    ["Why Now", "#why-now"],
+    ["Direction", "#direction"],
+    ["Stage", "#stage"],
+    ["Contact", "#contact"],
   ];
 
-  const problems = [
-    [Wind, "코에 직접 닿는\n사용 방식"],
-    [Users, "타인 앞에서\n사용하기 부담스러운 이미지"],
-    [Target, "저가형 제품처럼\n보이는 디자인"],
-    [Coffee, "카페인과 흡연 외\n선택지 부족"],
+  const values = [
+    {
+      icon: User,
+      title: "Personal",
+      text: "Designed around individual moments.",
+    },
+    {
+      icon: Leaf,
+      title: "Dry",
+      text: "Exploring a clean dry refresh experience.",
+    },
+    {
+      icon: RefreshCw,
+      title: "Refillable",
+      text: "Built around repeated use.",
+    },
+    {
+      icon: Wind,
+      title: "Portable",
+      text: "Made for daily movement.",
+    },
   ];
 
-  const targets = [
-    [Car, "장시간 운전하는\n운전자"],
-    [Briefcase, "집중 전환이 필요한\n직장인"],
-    [BookOpen, "학습 중 리프레시가\n필요한 학생"],
-    [Snowflake, "멘톨 쿨링감을\n선호하는 사용자"],
-    [Users, "위생적인 개인 웰니스\n제품을 원하는 소비자"],
+  const moments = [
+    {
+      icon: Briefcase,
+      title: "Before work",
+      text: "A small reset before focus begins.",
+    },
+    {
+      icon: BookOpen,
+      title: "During study",
+      text: "A quiet moment to return to attention.",
+    },
+    {
+      icon: CloudSun,
+      title: "After stress",
+      text: "A personal pause between pressure and recovery.",
+    },
+    {
+      icon: Footprints,
+      title: "Between routines",
+      text: "A refined refresh during everyday movement.",
+    },
   ];
 
   const stages = [
-    "브랜드 도메인 svas.kr 확보",
-    "초기 랜딩페이지 구축",
-    "제품 컨셉 이미지 정리",
-    "MVP 후원 의향 등록 폼 구축",
-    "창업지원 상담 신청 진행",
-    "제조 및 시제품 제작 가능성 검토 중",
+    {
+      number: "01",
+      icon: Lightbulb,
+      title: "Idea validation",
+      text: "Defining the problem and project direction.",
+    },
+    {
+      number: "02",
+      icon: Globe2,
+      title: "Landing page operation",
+      text: "Collecting early interest and feedback.",
+    },
+    {
+      number: "03",
+      icon: MessageCircle,
+      title: "Early feedback collection",
+      text: "Listening to users, partners, and makers.",
+    },
+    {
+      number: "04",
+      icon: FlaskConical,
+      title: "Material & manufacturing research",
+      text: "Reviewing possible production directions.",
+    },
+    {
+      number: "05",
+      icon: Handshake,
+      title: "Partnership discussion",
+      text: "Opening conversations with partners.",
+    },
   ];
 
   return (
-    <main className="min-h-screen bg-[#020914] text-white antialiased">
+    <main className="min-h-screen bg-[#f4efe5] text-[#092119] antialiased">
+      {/* HERO */}
       <section
         id="top"
-        className="relative overflow-hidden border-b border-white/10"
+        className="relative overflow-hidden bg-[#071a14] text-white"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_16%,rgba(37,99,235,0.36),transparent_34%),radial-gradient(circle_at_76%_36%,rgba(59,130,246,0.22),transparent_32%),linear-gradient(180deg,#020914,#04111f_65%,#020914)]" />
-        <div className="absolute right-[8%] top-[18%] hidden h-[360px] w-[150px] rotate-[-3deg] rounded-[4rem] bg-black/90 shadow-[0_0_90px_rgba(59,130,246,0.65)] blur-[0.2px] md:block" />
-        <div className="absolute right-[7%] top-[22%] hidden h-[310px] w-[120px] rotate-[-3deg] rounded-[4rem] bg-gradient-to-b from-white/10 via-black to-black opacity-45 md:block" />
-        <div className="absolute right-[4%] top-[38%] hidden h-[110px] w-[110px] rounded-full border border-blue-300/20 opacity-35 md:block" />
-        <div className="absolute right-[10%] top-[25%] hidden h-[220px] w-[430px] rounded-full bg-blue-500/15 blur-3xl md:block" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#020914] to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(222,205,176,0.24),transparent_30%),radial-gradient(circle_at_85%_60%,rgba(71,102,82,0.35),transparent_34%),linear-gradient(135deg,#06130f_0%,#0b2119_48%,#050b09_100%)]" />
+        <div className="absolute right-[-8%] top-0 hidden h-[620px] w-[620px] rounded-full bg-[#d9c7a3]/10 blur-3xl lg:block" />
+        <div className="absolute right-[11%] top-[145px] hidden h-[380px] w-[170px] rounded-[5rem] bg-black/80 shadow-[0_0_90px_rgba(216,199,163,0.22)] lg:block" />
+        <div className="absolute right-[13%] top-[165px] hidden h-[335px] w-[130px] rounded-[5rem] bg-gradient-to-b from-white/10 via-black/80 to-black/95 opacity-70 lg:block" />
+        <div className="absolute right-[7%] top-[160px] hidden h-[300px] w-[420px] rounded-full bg-[#c9b487]/10 blur-3xl lg:block" />
+        <div className="absolute right-[2%] top-[80px] hidden h-[420px] w-[420px] rounded-full border border-white/5 opacity-40 lg:block" />
 
         <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-7 lg:px-8">
-          <a href="#top" className="text-xl font-semibold tracking-[0.2em]">
-            SVAS <span className="text-blue-400">/ KOMEL</span>
+          <a href="#top" className="leading-none">
+            <div className="text-3xl font-light tracking-[0.22em] text-white">
+              SVAS
+            </div>
+            <div className="mt-1 text-xs font-semibold tracking-[0.35em] text-white/70">
+              KOMEL
+            </div>
           </a>
 
-          <nav className="hidden items-center gap-8 text-xs font-semibold tracking-[0.16em] text-white/72 lg:flex">
-            {nav.map(([label, href]) => (
-              <a key={label} href={href} className="hover:text-blue-300">
+          <nav className="hidden items-center gap-9 text-sm font-medium text-white/76 lg:flex">
+            {navItems.map(([label, href]) => (
+              <a key={label} href={href} className="transition hover:text-white">
                 {label}
               </a>
             ))}
@@ -87,282 +151,310 @@ export default function Page() {
             href={formLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-lg border border-blue-400/45 px-4 py-2 text-xs font-semibold text-blue-100 hover:bg-blue-400/10 lg:block"
+            className="hidden rounded-full bg-[#eadcc4] px-6 py-3 text-sm font-semibold text-[#092119] transition hover:bg-white lg:inline-flex"
           >
-            INVESTOR & PARTNER
+            Feedback / Partnership
           </a>
 
           <Menu className="h-7 w-7 text-white/80 lg:hidden" />
         </header>
 
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-6 pb-20 pt-16 lg:grid-cols-[0.62fr_0.38fr] lg:px-8 lg:pb-24 lg:pt-20">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-sm font-semibold tracking-[0.24em] text-blue-400">
-              01&nbsp;&nbsp; HERO
-            </p>
-
-            <h1 className="mt-7 text-5xl font-semibold leading-[1.08] tracking-[-0.05em] md:text-7xl">
-              A New Way
-              <br />
-              to Refresh.
-              <br />
-              <span className="text-blue-500">Without Touching</span>
-              <br />
-              <span className="text-blue-500">Your Nose.</span>
-            </h1>
-
-            <p className="mt-8 max-w-xl text-lg leading-9 text-white/72">
-              SVAS/KOMEL is an early-stage project preparing a hygienic and
-              sensory non-contact refresh wellness product.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href={formLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 rounded-xl bg-blue-600 px-7 py-4 text-sm font-semibold shadow-[0_0_40px_rgba(37,99,235,0.38)] transition hover:bg-blue-500"
-              >
-                Register as Early Supporter <ArrowRight className="h-4 w-4" />
-              </a>
-
-              <a
-                href={formLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 rounded-xl border border-white/18 bg-white/[0.03] px-7 py-4 text-sm font-semibold text-white/90 transition hover:bg-white/10"
-              >
-                Investor & Manufacturing Inquiry{" "}
-                <ArrowRight className="h-4 w-4" />
-              </a>
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-14 lg:grid-cols-[0.58fr_0.42fr] lg:px-8 lg:pb-28 lg:pt-20">
+          <div>
+            <div className="inline-flex rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold tracking-[0.14em] text-[#eadcc4]">
+              EARLY-STAGE PROJECT
             </div>
 
-            <p className="mt-8 max-w-xl text-xs leading-6 text-white/42">
-              This image is an initial concept visualization. Final product
-              design may change during the MVP development process. Product
-              structure and manufacturing details are protected and not publicly
-              disclosed.
-            </p>
-          </motion.div>
+            <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-[-0.06em] md:text-7xl">
+              A new personal
+              <br />
+              refresh experience.
+            </h1>
 
-          <div className="relative min-h-[360px] lg:min-h-[520px]">
-            <div className="absolute left-1/2 top-10 h-[360px] w-[145px] -translate-x-1/2 rounded-[4rem] bg-black shadow-[0_0_90px_rgba(59,130,246,0.55)]" />
-            <div className="absolute left-1/2 top-12 h-[320px] w-[115px] -translate-x-1/2 rounded-[4rem] bg-gradient-to-b from-white/8 via-black to-black opacity-40" />
-            <div className="absolute left-1/2 top-[280px] h-[86px] w-[86px] -translate-x-1/2 rounded-full border border-blue-400/20" />
-            <div className="absolute bottom-4 left-1/2 h-28 w-72 -translate-x-1/2 rounded-full bg-blue-600/18 blur-3xl" />
+            <p className="mt-6 text-3xl font-semibold tracking-[-0.04em] text-[#cbbf9f] md:text-4xl">
+              Dry. Refillable. Yours.
+            </p>
+
+            <p className="mt-8 max-w-xl text-lg leading-9 text-white/78">
+              SVAS / KOMEL is an early-stage personal refresh project from
+              Korea, exploring a new scent-based daily refresh experience.
+            </p>
+
+            <div className="mt-8 inline-flex max-w-md items-start gap-4 rounded-2xl border border-white/16 bg-black/20 p-5 text-white/80">
+              <Lock className="mt-1 h-5 w-5 shrink-0 text-[#eadcc4]" />
+              <p className="text-sm leading-7">
+                Product structure, material composition, and manufacturing
+                methods are protected at this stage.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a
+                href={formLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#eadcc4] px-7 py-4 text-sm font-semibold text-[#092119] transition hover:bg-white"
+              >
+                Share Feedback <ArrowRight className="h-4 w-4" />
+              </a>
+
+              <a
+                href={formLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 rounded-full border border-white/30 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Partnership Inquiry <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          <div className="relative hidden min-h-[480px] lg:block">
+            <div className="absolute left-1/2 top-[44px] h-[390px] w-[175px] -translate-x-1/2 rounded-[5rem] bg-black/80 shadow-[0_0_90px_rgba(234,220,196,0.24)]" />
+            <div className="absolute left-1/2 top-[64px] h-[340px] w-[130px] -translate-x-1/2 rounded-[5rem] bg-gradient-to-b from-white/10 via-black/85 to-black opacity-75" />
+            <div className="absolute left-1/2 top-[278px] h-[70px] w-[120px] -translate-x-1/2 rounded-full border border-white/5 opacity-70" />
+            <div className="absolute bottom-8 left-1/2 h-28 w-80 -translate-x-1/2 rounded-full bg-black/50 blur-3xl" />
           </div>
         </div>
       </section>
 
-      <Section id="why" number="01" eyebrow="WHY NOW" title="왜 지금인가">
-        <div className="grid gap-10 lg:grid-cols-[0.35fr_0.65fr]">
-          <IconOrb icon={Wind} />
-          <p className="text-lg leading-9 text-white/68">
-            현대인은 집중 전환과 기분 환기를 위해 카페인, 흡연, 향 제품에
-            의존하고 있습니다. 하지만 위생적이고 자연스럽게 사용할 수 있는
-            개인 리프레시 제품은 부족합니다.
-          </p>
-        </div>
-      </Section>
+      {/* ABOUT */}
+      <section id="about" className="bg-[#f7f2ea] px-6 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.2em] text-[#55705f]">
+              ABOUT
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
+              About SVAS / KOMEL
+            </h2>
+            <p className="mt-6 text-base leading-8 text-[#27352f]">
+              SVAS / KOMEL is an early-stage personal refresh project built
+              around small moments of daily reset.
+            </p>
+            <p className="mt-4 text-base leading-8 text-[#27352f]">
+              We are exploring a new scent-based experience focused on personal
+              use, portability, and repeated use.
+            </p>
+          </div>
 
-      <Section
-        id="problem"
-        number="02"
-        eyebrow="PROBLEM"
-        title="기존 리프레시 제품의 문제"
-      >
-        <div className="grid gap-4 md:grid-cols-4">
-          {problems.map(([Icon, text]) => (
-            <div
-              key={text}
-              className="rounded-2xl border border-white/10 bg-white/[0.025] p-6 text-center"
-            >
-              <Icon className="mx-auto h-9 w-9 text-blue-400" />
-              <p className="mt-5 whitespace-pre-line text-sm leading-7 text-white/72">
-                {text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="direction"
-        number="03"
-        eyebrow="DIRECTION"
-        title="SVAS의 방향"
-      >
-        <div className="grid gap-10 lg:grid-cols-[0.5fr_0.5fr] lg:items-center">
-          <p className="text-lg leading-9 text-white/68">
-            SVAS는 코에 직접 닿지 않는 비접촉 사용 경험으로 개인 리프레시
-            루틴을 설계합니다. 제품 구조, 성분 배합, 제조 방식 등 세부
-            내용은 보호를 위해 공개하지 않으며, 협업 논의 단계에서 별도
-            공유합니다.
-          </p>
-
-          <div className="relative h-48 overflow-hidden rounded-3xl border border-blue-400/10 bg-blue-500/[0.03]">
-            <div className="absolute left-1/2 top-1/2 h-20 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-400/45 shadow-[0_0_45px_rgba(59,130,246,0.35)]" />
-            <div className="absolute left-1/2 top-1/2 h-32 w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-500/25" />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map(({ icon: Icon, title, text }) => (
+              <div
+                key={title}
+                className="rounded-3xl border border-[#d8d0c3] bg-white/55 p-6"
+              >
+                <Icon className="h-8 w-8 text-[#143d2f]" />
+                <h3 className="mt-6 text-lg font-semibold">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#5a665f]">{text}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section id="target" number="04" eyebrow="TARGET" title="주요 타깃">
-        <div className="grid gap-5 md:grid-cols-5">
-          {targets.map(([Icon, text]) => (
-            <div key={text} className="text-center">
-              <Icon className="mx-auto h-9 w-9 text-blue-400" />
-              <p className="mt-5 whitespace-pre-line text-sm leading-7 text-white/70">
-                {text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="stage"
-        number="05"
-        eyebrow="CURRENT STAGE"
-        title="현재 준비된 것"
-      >
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {stages.map((item) => (
-            <div
-              key={item}
-              className="flex items-center gap-3 text-sm text-white/70"
-            >
-              <CheckCircle2 className="h-5 w-5 text-blue-400" />
-              {item}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="support"
-        number="06"
-        eyebrow="MVP SUPPORT"
-        title="MVP 제작 후원 의향 등록"
-      >
-        <div className="grid gap-10 lg:grid-cols-[0.6fr_0.4fr] lg:items-center">
-          <p className="text-lg leading-9 text-white/68">
-            SVAS/KOMEL은 현재 제품 완성 전 단계에서 MVP 제작을 준비하고
-            있습니다. 초기 서포터는 정식 후원/펀딩 오픈 전 프로젝트 소식과
-            테스트 참여 기회를 우선 안내받을 수 있습니다. 현재 등록은 결제나
-            후원금 수령이 아닌, MVP 제작을 위한 후원 의향 확인 단계입니다.
-          </p>
-
-          <a
-            href={formLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 rounded-xl bg-blue-600 px-8 py-5 text-sm font-semibold shadow-[0_0_40px_rgba(37,99,235,0.32)] hover:bg-blue-500"
-          >
-            초기 서포터 등록하기 <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
-      </Section>
-
-      <section id="contact" className="px-6 py-8 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-3xl border border-white/10 bg-white/[0.025] p-8">
-          <div className="grid gap-8 lg:grid-cols-[0.34fr_0.66fr] lg:items-center">
+      {/* WHY NOW */}
+      <section id="why-now" className="bg-[#ede8dd] px-6 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr]">
             <div>
-              <p className="text-sm font-semibold tracking-[0.24em] text-blue-400">
-                07&nbsp;&nbsp; CONTACT
+              <p className="text-sm font-semibold tracking-[0.2em] text-[#55705f]">
+                WHY NOW
               </p>
-              <h2 className="mt-5 text-3xl font-semibold">
-                투자·제조 협업 문의
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
+                Small moments need better rituals.
+              </h2>
+              <p className="mt-6 text-base leading-8 text-[#27352f]">
+                People look for small moments to reset throughout the day.
+              </p>
+              <p className="mt-4 text-base leading-8 text-[#27352f]">
+                Before work, during study, after stress, or between daily
+                routines, we believe personal refresh can become more
+                intentional and refined.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {moments.map(({ icon: Icon, title, text }) => (
+                <div
+                  key={title}
+                  className="rounded-3xl border border-[#d5ccbc] bg-[#f7f2ea] p-6"
+                >
+                  <Icon className="h-8 w-8 text-[#143d2f]" />
+                  <h3 className="mt-6 text-lg font-semibold">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5a665f]">
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DIRECTION */}
+      <section id="direction" className="bg-[#f7f2ea] px-6 py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 rounded-[2rem] border border-[#d8d0c3] bg-white/55 p-8 lg:grid-cols-[0.34fr_0.33fr_0.33fr] lg:items-center lg:p-10">
+            <div>
+              <p className="text-sm font-semibold tracking-[0.2em] text-[#55705f]">
+                DIRECTION
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">
+                Our direction is simple.
               </h2>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
-              <div>
-                <p className="text-sm leading-7 text-white/62">
-                  투자·제조·유통 협업자는 문의 양식을 통해 연락해 주세요.
-                  제품 구조, 제조 방식, 세부 자료는 공개 사이트에 노출하지
-                  않으며, 협업 논의 단계에서 별도 공유합니다.
-                </p>
+            <div className="text-4xl font-semibold leading-tight tracking-[-0.05em] text-[#092119]">
+              Personal.
+              <br />
+              Dry.
+              <br />
+              Refillable.
+              <br />
+              Portable.
+            </div>
 
-                <div className="mt-5 rounded-2xl border border-blue-400/20 bg-blue-500/[0.06] px-5 py-4">
-                  <p className="text-xs font-semibold tracking-[0.2em] text-blue-300/80">
-                    CONTACT FORM
-                  </p>
-                  <p className="mt-2 text-lg font-semibold text-blue-200">
-                    Investor / Manufacturing / Partnership Inquiry
-                  </p>
-                  <p className="mt-2 text-xs leading-6 text-white/45">
-                    버튼을 누르면 Google Form 문의 양식이 새 창으로 열립니다.
-                    메일 앱은 자동 실행되지 않습니다.
-                  </p>
-                </div>
-              </div>
-
-              <a
-                href={formLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 rounded-xl border border-white/16 px-6 py-4 text-sm font-semibold hover:bg-white/10"
-              >
-                문의 양식 열기 <ArrowRight className="h-4 w-4" />
-              </a>
+            <div className="flex items-start gap-5 rounded-3xl border border-[#d8d0c3] bg-[#f7f2ea] p-6">
+              <Lock className="mt-1 h-6 w-6 shrink-0 text-[#143d2f]" />
+              <p className="text-sm leading-7 text-[#27352f]">
+                Detailed structure, material composition, and manufacturing
+                methods are not publicly disclosed at this stage.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="px-6 pb-10 pt-4 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 border-t border-white/10 pt-8 text-sm text-white/55 md:flex-row md:items-center md:justify-between">
-          <p className="font-semibold tracking-[0.2em]">SVAS / KOMEL</p>
-          <div className="flex flex-wrap gap-6">
-            <span>Founder. Kim Taeyoung</span>
-            <span className="inline-flex items-center gap-2">
+      {/* CURRENT STAGE */}
+      <section id="stage" className="bg-[#06130f] px-6 py-16 text-white lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-semibold tracking-[0.2em] text-[#cbbf9f]">
+            CURRENT STAGE
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
+            Building the project step by step.
+          </h2>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-5">
+            {stages.map(({ number, icon: Icon, title, text }) => (
+              <div key={title} className="relative">
+                <div className="rounded-3xl border border-white/12 bg-white/[0.04] p-6">
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#eadcc4] text-sm font-bold text-[#092119]">
+                      {number}
+                    </span>
+                    <Icon className="h-7 w-7 text-[#eadcc4]" />
+                  </div>
+                  <h3 className="mt-7 text-base font-semibold">{title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-white/58">
+                    {text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex items-start gap-5 rounded-3xl border border-white/12 bg-white/[0.04] p-6">
+            <Lock className="mt-1 h-6 w-6 shrink-0 text-[#eadcc4]" />
+            <div className="grid gap-2 md:grid-cols-[0.42fr_0.58fr] md:items-center">
+              <p className="font-semibold text-white">
+                Product details are protected.
+              </p>
+              <p className="text-sm leading-7 text-white/62">
+                SVAS / KOMEL is currently developing through idea validation,
+                early feedback, and partnership discussions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="bg-[#f4efe5] px-6 py-16 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 rounded-[2rem] bg-[#0a241b] p-8 text-white lg:grid-cols-[0.45fr_0.55fr] lg:items-center lg:p-10">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.2em] text-[#cbbf9f]">
+              CONTACT
+            </p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.05em]">
+              Your feedback drives the next step.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-8 text-white/68">
+              We are currently collecting early feedback and partnership
+              inquiries for SVAS / KOMEL.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <a
+              href={formLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-3xl bg-[#eadcc4] p-7 text-[#092119] transition hover:bg-white"
+            >
+              <MessageCircle className="h-8 w-8" />
+              <div className="mt-8 flex items-center justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-semibold">Share Feedback</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#3d4c45]">
+                    Tell us your first impression.
+                  </p>
+                </div>
+                <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+              </div>
+            </a>
+
+            <a
+              href={formLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-3xl border border-white/18 bg-white/[0.04] p-7 text-white transition hover:bg-white/[0.08]"
+            >
+              <Handshake className="h-8 w-8 text-[#eadcc4]" />
+              <div className="mt-8 flex items-center justify-between gap-4">
+                <div>
+                  <h3 className="text-xl font-semibold">
+                    Partnership Inquiry
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-white/62">
+                    Manufacturing, investment, or collaboration.
+                  </p>
+                </div>
+                <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-[#06130f] px-6 py-10 text-white lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.25fr_0.35fr_0.4fr] md:items-center">
+          <div>
+            <div className="text-3xl font-light tracking-[0.22em]">SVAS</div>
+            <div className="mt-1 text-xs font-semibold tracking-[0.35em] text-white/60">
+              KOMEL
+            </div>
+          </div>
+
+          <div className="text-sm leading-7 text-white/56">
+            <p>Refresh your moment.</p>
+            <p>In your own way.</p>
+          </div>
+
+          <div className="flex flex-col gap-3 text-sm text-white/58 md:items-end">
+            <p>Founder. Kim Taeyoung</p>
+            <p>Based in Korea</p>
+            <p className="inline-flex items-center gap-2">
               <Mail className="h-4 w-4" />
               {contactEmail}
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <Globe2 className="h-4 w-4" />
-              svas.kr
-            </span>
+            </p>
+            <p>www.svas.kr</p>
+            <p className="text-xs text-white/35">© 2026 SVAS / KOMEL.</p>
           </div>
-          <p>© 2024 SVAS / KOMEL.</p>
         </div>
       </footer>
     </main>
-  );
-}
-
-function Section({ id, number, eyebrow, title, children }) {
-  return (
-    <section id={id} className="px-6 py-3 lg:px-8">
-      <div className="mx-auto max-w-7xl rounded-3xl border border-white/10 bg-white/[0.025] p-8 shadow-[0_0_80px_rgba(0,0,0,0.18)] md:p-10">
-        <div className="mb-7 flex items-start gap-8">
-          <div className="min-w-12 text-2xl font-semibold text-blue-400">
-            {number}
-          </div>
-          <div>
-            <p className="text-xs font-semibold tracking-[0.25em] text-blue-400/80">
-              {eyebrow}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold md:text-3xl">
-              {title}
-            </h2>
-          </div>
-        </div>
-        {children}
-      </div>
-    </section>
-  );
-}
-
-function IconOrb({ icon: Icon }) {
-  return (
-    <div className="flex h-28 w-28 items-center justify-center rounded-full border border-blue-400/35 bg-blue-500/[0.06] text-blue-400 shadow-[0_0_45px_rgba(59,130,246,0.22)]">
-      <Icon className="h-10 w-10" />
-    </div>
   );
 }
