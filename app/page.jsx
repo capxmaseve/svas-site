@@ -3,14 +3,12 @@
 import React from "react";
 import {
   ArrowRight,
-  CheckCircle2,
   Globe2,
   Lock,
   Mail,
   Menu,
   MessageCircle,
   RefreshCw,
-  Sparkles,
   User,
   Wind,
   Leaf,
@@ -123,19 +121,19 @@ export default function Page() {
         className="relative overflow-hidden bg-[#071a14] text-white"
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(222,205,176,0.24),transparent_30%),radial-gradient(circle_at_85%_60%,rgba(71,102,82,0.35),transparent_34%),linear-gradient(135deg,#06130f_0%,#0b2119_48%,#050b09_100%)]" />
+
         <div className="absolute right-[-8%] top-0 hidden h-[620px] w-[620px] rounded-full bg-[#d9c7a3]/10 blur-3xl lg:block" />
         <div className="absolute right-[11%] top-[145px] hidden h-[380px] w-[170px] rounded-[5rem] bg-black/80 shadow-[0_0_90px_rgba(216,199,163,0.22)] lg:block" />
         <div className="absolute right-[13%] top-[165px] hidden h-[335px] w-[130px] rounded-[5rem] bg-gradient-to-b from-white/10 via-black/80 to-black/95 opacity-70 lg:block" />
         <div className="absolute right-[7%] top-[160px] hidden h-[300px] w-[420px] rounded-full bg-[#c9b487]/10 blur-3xl lg:block" />
-        <div className="absolute right-[2%] top-[80px] hidden h-[420px] w-[420px] rounded-full border border-white/5 opacity-40 lg:block" />
 
         <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-7 lg:px-8">
           <a href="#top" className="leading-none">
             <div className="text-3xl font-light tracking-[0.22em] text-white">
               SVAS
             </div>
-            <div className="mt-1 text-xs font-semibold tracking-[0.35em] text-white/70">
-              KOMEL
+            <div className="mt-1 text-[10px] font-semibold tracking-[0.28em] text-white/55">
+              PERSONAL REFRESH BRAND
             </div>
           </a>
 
@@ -162,10 +160,14 @@ export default function Page() {
         <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-14 lg:grid-cols-[0.58fr_0.42fr] lg:px-8 lg:pb-28 lg:pt-20">
           <div>
             <div className="inline-flex rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold tracking-[0.14em] text-[#eadcc4]">
-              EARLY-STAGE PROJECT
+              EARLY-STAGE PRODUCT CONCEPT
             </div>
 
-            <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-[-0.06em] md:text-7xl">
+            <p className="mt-8 text-lg font-semibold tracking-[0.18em] text-[#cbbf9f]">
+              INTRODUCING KOMEL
+            </p>
+
+            <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-[-0.06em] md:text-7xl">
               A new personal
               <br />
               refresh experience.
@@ -176,8 +178,8 @@ export default function Page() {
             </p>
 
             <p className="mt-8 max-w-xl text-lg leading-9 text-white/78">
-              SVAS / KOMEL is an early-stage personal refresh project from
-              Korea, exploring a new scent-based daily refresh experience.
+              KOMEL is the first product concept by SVAS, an early-stage
+              personal refresh brand from Korea.
             </p>
 
             <div className="mt-8 inline-flex max-w-md items-start gap-4 rounded-2xl border border-white/16 bg-black/20 p-5 text-white/80">
@@ -223,18 +225,21 @@ export default function Page() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold tracking-[0.2em] text-[#55705f]">
-              ABOUT
+              ABOUT KOMEL
             </p>
+
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-              About SVAS / KOMEL
+              The first product concept by SVAS.
             </h2>
+
             <p className="mt-6 text-base leading-8 text-[#27352f]">
-              SVAS / KOMEL is an early-stage personal refresh project built
+              KOMEL is an early-stage personal refresh product concept built
               around small moments of daily reset.
             </p>
+
             <p className="mt-4 text-base leading-8 text-[#27352f]">
-              We are exploring a new scent-based experience focused on personal
-              use, portability, and repeated use.
+              SVAS is exploring a new scent-based experience focused on
+              personal use, portability, and repeated use.
             </p>
           </div>
 
@@ -261,12 +266,15 @@ export default function Page() {
               <p className="text-sm font-semibold tracking-[0.2em] text-[#55705f]">
                 WHY NOW
               </p>
+
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
                 Small moments need better rituals.
               </h2>
+
               <p className="mt-6 text-base leading-8 text-[#27352f]">
                 People look for small moments to reset throughout the day.
               </p>
+
               <p className="mt-4 text-base leading-8 text-[#27352f]">
                 Before work, during study, after stress, or between daily
                 routines, we believe personal refresh can become more
@@ -300,8 +308,9 @@ export default function Page() {
               <p className="text-sm font-semibold tracking-[0.2em] text-[#55705f]">
                 DIRECTION
               </p>
+
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em]">
-                Our direction is simple.
+                KOMEL’s direction is simple.
               </h2>
             </div>
 
@@ -332,8 +341,9 @@ export default function Page() {
           <p className="text-sm font-semibold tracking-[0.2em] text-[#cbbf9f]">
             CURRENT STAGE
           </p>
+
           <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-            Building the project step by step.
+            Building KOMEL step by step.
           </h2>
 
           <div className="mt-12 grid gap-5 md:grid-cols-5">
@@ -346,7 +356,9 @@ export default function Page() {
                     </span>
                     <Icon className="h-7 w-7 text-[#eadcc4]" />
                   </div>
+
                   <h3 className="mt-7 text-base font-semibold">{title}</h3>
+
                   <p className="mt-3 text-sm leading-6 text-white/58">
                     {text}
                   </p>
@@ -357,13 +369,15 @@ export default function Page() {
 
           <div className="mt-10 flex items-start gap-5 rounded-3xl border border-white/12 bg-white/[0.04] p-6">
             <Lock className="mt-1 h-6 w-6 shrink-0 text-[#eadcc4]" />
+
             <div className="grid gap-2 md:grid-cols-[0.42fr_0.58fr] md:items-center">
               <p className="font-semibold text-white">
                 Product details are protected.
               </p>
+
               <p className="text-sm leading-7 text-white/62">
-                SVAS / KOMEL is currently developing through idea validation,
-                early feedback, and partnership discussions.
+                KOMEL is currently developing through idea validation, early
+                feedback, and partnership discussions.
               </p>
             </div>
           </div>
@@ -377,12 +391,14 @@ export default function Page() {
             <p className="text-sm font-semibold tracking-[0.2em] text-[#cbbf9f]">
               CONTACT
             </p>
+
             <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.05em]">
               Your feedback drives the next step.
             </h2>
+
             <p className="mt-5 max-w-xl text-base leading-8 text-white/68">
-              We are currently collecting early feedback and partnership
-              inquiries for SVAS / KOMEL.
+              SVAS is currently collecting early feedback and partnership
+              inquiries for KOMEL.
             </p>
           </div>
 
@@ -394,6 +410,7 @@ export default function Page() {
               className="group rounded-3xl bg-[#eadcc4] p-7 text-[#092119] transition hover:bg-white"
             >
               <MessageCircle className="h-8 w-8" />
+
               <div className="mt-8 flex items-center justify-between gap-4">
                 <div>
                   <h3 className="text-xl font-semibold">Share Feedback</h3>
@@ -401,6 +418,7 @@ export default function Page() {
                     Tell us your first impression.
                   </p>
                 </div>
+
                 <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
               </div>
             </a>
@@ -412,6 +430,7 @@ export default function Page() {
               className="group rounded-3xl border border-white/18 bg-white/[0.04] p-7 text-white transition hover:bg-white/[0.08]"
             >
               <Handshake className="h-8 w-8 text-[#eadcc4]" />
+
               <div className="mt-8 flex items-center justify-between gap-4">
                 <div>
                   <h3 className="text-xl font-semibold">
@@ -421,6 +440,7 @@ export default function Page() {
                     Manufacturing, investment, or collaboration.
                   </p>
                 </div>
+
                 <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
               </div>
             </a>
@@ -433,14 +453,14 @@ export default function Page() {
         <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.25fr_0.35fr_0.4fr] md:items-center">
           <div>
             <div className="text-3xl font-light tracking-[0.22em]">SVAS</div>
-            <div className="mt-1 text-xs font-semibold tracking-[0.35em] text-white/60">
-              KOMEL
+            <div className="mt-1 text-[10px] font-semibold tracking-[0.28em] text-white/50">
+              PERSONAL REFRESH BRAND
             </div>
           </div>
 
           <div className="text-sm leading-7 text-white/56">
-            <p>Refresh your moment.</p>
-            <p>In your own way.</p>
+            <p>Building personal refresh experiences.</p>
+            <p>First product concept: KOMEL</p>
           </div>
 
           <div className="flex flex-col gap-3 text-sm text-white/58 md:items-end">
@@ -451,7 +471,7 @@ export default function Page() {
               {contactEmail}
             </p>
             <p>www.svas.kr</p>
-            <p className="text-xs text-white/35">© 2026 SVAS / KOMEL.</p>
+            <p className="text-xs text-white/35">© 2026 SVAS.</p>
           </div>
         </div>
       </footer>
