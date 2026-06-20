@@ -8,7 +8,6 @@ import {
   FileText,
   Globe2,
   Handshake,
-  KeyRound,
   Layers3,
   Lock,
   Mail,
@@ -19,6 +18,9 @@ import {
   Sparkles,
   Target,
   TrendingUp,
+  Brain,
+  BriefcaseBusiness,
+  Gem,
 } from "lucide-react";
 
 export default function Page() {
@@ -30,6 +32,7 @@ export default function Page() {
     ["Market", "#market"],
     ["Technology", "#technology"],
     ["Business", "#business"],
+    ["Materials", "#materials"],
     ["Roadmap", "#roadmap"],
     ["IR Access", "#contact"],
   ];
@@ -38,7 +41,7 @@ export default function Page() {
     {
       icon: Target,
       title: "Low social acceptance",
-      text: "Existing refresh products often feel awkward, cheap, or inappropriate in professional and public environments.",
+      text: "Existing refresh products often feel awkward, cheap, or unsuitable in professional and public environments.",
     },
     {
       icon: ShieldCheck,
@@ -65,8 +68,8 @@ export default function Page() {
     },
     {
       icon: Layers3,
-      title: "Premium Material Assembly",
-      text: "A design direction combining durable materials, compact portability, and a refined object-like presence.",
+      title: "Premium Object Assembly",
+      text: "A material and form strategy built around portability, discretion, and long-term ownership.",
     },
   ];
 
@@ -136,7 +139,7 @@ export default function Page() {
             className="h-full w-full object-cover opacity-70"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#040302] via-[#040302]/50 to-black/30" />
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/22" />
         </div>
 
         {/* Header */}
@@ -148,7 +151,7 @@ export default function Page() {
             SVAS
           </a>
 
-          <nav className="hidden items-center gap-10 text-sm font-medium text-[#f3e6d0]/78 lg:flex">
+          <nav className="hidden items-center gap-9 text-sm font-medium text-[#f3e6d0]/78 lg:flex">
             {navItems.map(([label, href]) => (
               <a
                 key={label}
@@ -179,15 +182,14 @@ export default function Page() {
             </p>
 
             <h1 className="mt-10 max-w-4xl text-5xl font-medium leading-[1.04] tracking-[-0.075em] text-[#f4e6cf] md:text-7xl">
-              Redefining the premium
+              A premium mental-tech
               <br />
-              personal reset market.
+              platform for cognitive refresh.
             </h1>
 
             <p className="mt-8 max-w-xl text-xl leading-9 text-[#f3e6d0]/74">
-              KOMEL is the first product by SVAS — a premium mental-wellness
-              object designed to turn short daily reset moments into a scalable
-              product platform.
+              KOMEL is the first product by SVAS — designed to transform short
+              daily reset moments into a scalable personal wellness platform.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -252,9 +254,10 @@ export default function Page() {
                 The category is under-designed.
               </h2>
               <p className="mt-7 text-base leading-8 text-[#f3e6d0]/62">
-                People already seek small moments to reset during work, study,
-                stress, and daily transitions. Yet most existing options remain
-                low-end, awkward, disposable, or socially uncomfortable.
+                Global knowledge workers, students, drivers, and high-pressure
+                professionals already seek small moments to reset. Yet existing
+                options remain low-end, awkward, disposable, or socially
+                uncomfortable.
               </p>
             </div>
 
@@ -278,19 +281,22 @@ export default function Page() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <MarketStat
+              icon={Brain}
               label="Target Direction"
-              value="Mental Wellness"
-              text="Positioned around daily stress, focus, and personal reset routines."
+              value="Cognitive Refresh"
+              text="Positioned around focus, daily stress, and short mental reset routines."
             />
             <MarketStat
+              icon={BriefcaseBusiness}
+              label="Market Audience"
+              value="Global Knowledge Workers"
+              text="A scalable audience across work, study, driving, travel, and high-pressure daily routines."
+            />
+            <MarketStat
+              icon={Gem}
               label="Category Gap"
               value="Premium Personal Object"
-              text="Aiming to move refresh products from disposable utility to owned lifestyle object."
-            />
-            <MarketStat
-              label="Current Status"
-              value="Validation Stage"
-              text="Market assumptions, user signals, and partner demand are being collected."
+              text="Moving refresh from disposable utility to a refined object people want to keep."
             />
           </div>
         </div>
@@ -308,9 +314,9 @@ export default function Page() {
                 TECHNOLOGY TEASE
               </p>
               <h2 className="mt-5 text-4xl font-medium leading-tight tracking-[-0.06em]">
-                The outcome is visible.
+                Show the outcome.
                 <br />
-                The mechanism stays protected.
+                Protect the mechanism.
               </h2>
             </div>
 
@@ -337,6 +343,22 @@ export default function Page() {
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 border border-[#b88746]/28 bg-black/24 p-7">
+            <div className="grid gap-6 md:grid-cols-[0.28fr_0.72fr] md:items-center">
+              <div className="flex items-center gap-4">
+                <KeyLabel />
+                <p className="text-xl font-semibold text-[#d8aa68]">
+                  Proprietary Technology
+                </p>
+              </div>
+              <p className="text-sm leading-7 text-[#f3e6d0]/62">
+                KOMEL’s technical architecture is treated as a protected asset.
+                Public messaging focuses on the market outcome, not the
+                engineering method.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -399,6 +421,43 @@ export default function Page() {
                 and partner channels.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MATERIALS */}
+      <section
+        id="materials"
+        className="border-b border-[#b88746]/18 bg-[#050403] px-6 py-20 lg:px-8"
+      >
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.36fr_0.64fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.28em] text-[#d8aa68]">
+              MATERIAL DIRECTION
+            </p>
+            <h2 className="mt-5 text-4xl font-medium leading-tight tracking-[-0.06em]">
+              Premium should be felt
+              <br />
+              before it is explained.
+            </h2>
+            <p className="mt-7 text-base leading-8 text-[#f3e6d0]/62">
+              The public page reveals the material mood, not the internal
+              structure. KOMEL is positioned as a refined object with a premium
+              physical presence.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            <MaterialCard
+              title="Anodized Aluminum"
+              text="A calm, durable exterior language for premium daily carry."
+              gradient="from-[#d6aa6a]/25 via-[#11100d] to-black"
+            />
+            <MaterialCard
+              title="Natural Wood Base"
+              text="A warmer object presence designed to feel less disposable."
+              gradient="from-[#7b4c22]/35 via-[#11100d] to-black"
+            />
           </div>
         </div>
       </section>
@@ -466,7 +525,9 @@ export default function Page() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-between border border-[#b88746]/55 px-6 py-5 text-[#d8aa68] transition hover:bg-[#d8aa68]/10"
               >
-                <span className="font-semibold">Request NDA-Based IR Access</span>
+                <span className="font-semibold">
+                  Request NDA-Based IR Access
+                </span>
                 <ArrowRight className="h-5 w-5" />
               </a>
 
@@ -476,7 +537,9 @@ export default function Page() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-between border border-[#b88746]/55 px-6 py-5 text-[#d8aa68] transition hover:bg-[#d8aa68]/10"
               >
-                <span className="font-semibold">Manufacturing / Investment Inquiry</span>
+                <span className="font-semibold">
+                  Manufacturing / Investment Inquiry
+                </span>
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>
@@ -518,14 +581,36 @@ export default function Page() {
   );
 }
 
-function MarketStat({ label, value, text }) {
+function MarketStat({ icon: Icon, label, value, text }) {
   return (
     <div className="border border-[#b88746]/25 bg-black/24 p-6">
-      <p className="text-xs font-semibold tracking-[0.22em] text-[#d8aa68]/70">
+      <Icon className="h-8 w-8 text-[#d8aa68]" />
+      <p className="mt-6 text-xs font-semibold tracking-[0.22em] text-[#d8aa68]/70">
         {label}
       </p>
       <p className="mt-5 text-2xl font-semibold text-[#f3e6d0]">{value}</p>
       <p className="mt-3 text-sm leading-7 text-[#f3e6d0]/55">{text}</p>
+    </div>
+  );
+}
+
+function MaterialCard({ title, text, gradient }) {
+  return (
+    <div
+      className={`relative overflow-hidden border border-[#b88746]/30 bg-gradient-to-br ${gradient} p-8`}
+    >
+      <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-[#d8aa68]/10 blur-2xl" />
+      <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-[#d8aa68]/70 to-transparent" />
+      <p className="text-2xl font-semibold text-[#f3e6d0]">{title}</p>
+      <p className="mt-5 text-sm leading-7 text-[#f3e6d0]/60">{text}</p>
+    </div>
+  );
+}
+
+function KeyLabel() {
+  return (
+    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#b88746]/45 bg-black/40">
+      <Lock className="h-5 w-5 text-[#d8aa68]" />
     </div>
   );
 }
