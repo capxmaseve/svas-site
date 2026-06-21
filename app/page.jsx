@@ -130,7 +130,7 @@ export default function Page() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_34%,rgba(190,126,58,0.2),transparent_34%),radial-gradient(circle_at_28%_16%,rgba(255,214,156,0.08),transparent_28%),linear-gradient(120deg,#050403_0%,#0b0704_48%,#020100_100%)]" />
 
-        {/* Hero image */}
+        {/* Hero image - desktop only */}
         <div className="absolute right-0 top-0 hidden h-full w-[56%] lg:block">
           <div className="absolute inset-0 bg-gradient-to-l from-black via-black/45 to-transparent" />
           <img
@@ -222,16 +222,28 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="min-h-[480px] lg:hidden">
-            <div className="mt-10 border border-[#b88746]/50 bg-black/68 p-8 text-center">
-              <Lock className="mx-auto h-12 w-12 text-[#d8aa68]" />
-              <p className="mt-5 text-2xl font-semibold text-[#d8aa68]">
-                Details Reserved
-              </p>
-              <p className="mt-4 text-sm leading-7 text-[#f3e6d0]/65">
-                Product structure and manufacturing details are shared only
-                with verified partners under NDA.
-              </p>
+          {/* Hero image - mobile only */}
+          <div className="lg:hidden">
+            <div className="mt-10 overflow-hidden border border-[#b88746]/50 bg-black/70 shadow-[0_0_50px_rgba(184,135,70,0.18)]">
+              <div className="relative">
+                <img
+                  src="/komel-locked.png"
+                  alt="Protected KOMEL product detail"
+                  className="h-auto w-full object-cover opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
+              </div>
+
+              <div className="p-6 text-center">
+                <Lock className="mx-auto h-9 w-9 text-[#d8aa68]" />
+                <p className="mt-4 text-xl font-semibold text-[#d8aa68]">
+                  Details Reserved
+                </p>
+                <p className="mt-3 text-sm leading-7 text-[#f3e6d0]/65">
+                  Product structure and manufacturing details are shared only
+                  with verified partners under NDA.
+                </p>
+              </div>
             </div>
           </div>
         </div>
