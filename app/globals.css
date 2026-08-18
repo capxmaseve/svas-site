@@ -10,26 +10,31 @@
   --line: rgba(23, 21, 17, 0.12);
 }
 
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+
   background: var(--background);
   color: var(--ink);
+
   font-family:
     Arial,
     "Noto Sans KR",
@@ -37,8 +42,22 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+main,
+section,
+article,
+header,
+footer,
+nav,
+div {
+  min-width: 0;
 }
 
 a {
@@ -67,34 +86,49 @@ img {
 
 .sectionLabel {
   margin: 0;
+
   color: var(--gold);
+
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.1em;
+
+  text-transform: uppercase;
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .siteHeader {
   position: fixed;
+
   z-index: 100;
+
   top: 0;
   left: 0;
+
   width: 100%;
+
   background: rgba(245, 240, 232, 0.94);
+
   border-bottom: 1px solid rgba(23, 21, 17, 0.06);
+
   backdrop-filter: blur(14px);
 }
 
 .nav {
   display: flex;
   align-items: center;
+
   height: 72px;
+
   gap: 28px;
 }
 
 .brand {
   margin-right: auto;
+
   font-size: 27px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -102,7 +136,10 @@ img {
 
 .desktopNav {
   display: flex;
+  align-items: center;
+
   gap: 28px;
+
   font-size: 12px;
   font-weight: 600;
 }
@@ -118,25 +155,32 @@ img {
 .navActions {
   display: flex;
   align-items: center;
+
   gap: 14px;
 }
 
 .languageSwitch {
   display: flex;
   align-items: center;
+
   gap: 6px;
+
   font-size: 11px;
 }
 
 .languageSwitch button {
   border: 0;
+
   padding: 3px;
+
   background: transparent;
+
   color: #999084;
 }
 
 .languageSwitch button.active {
   color: var(--ink);
+
   font-weight: 800;
 }
 
@@ -146,72 +190,110 @@ img {
 
 .navCTA {
   padding: 11px 18px;
+
   border-radius: 999px;
+
   background: var(--ink);
+
   color: white;
+
   font-size: 11px;
   font-weight: 700;
+
+  white-space: nowrap;
 }
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
   position: relative;
-  min-height: 690px;
-  padding: 125px 0 52px;
+
+  min-height: 680px;
+
+  padding: 125px 0 58px;
+
   overflow: hidden;
 }
 
 .hero::after {
   content: "";
+
   position: absolute;
+
   z-index: -1;
-  right: -8%;
+
   top: -10%;
+  right: -8%;
+
   width: 60%;
   height: 95%;
-  background: radial-gradient(
-    circle,
-    rgba(188, 154, 105, 0.2),
-    transparent 67%
-  );
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(188, 154, 105, 0.20),
+      transparent 67%
+    );
 }
 
 .heroGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 0.95fr);
+
   align-items: center;
+
   gap: 70px;
+}
+
+.heroCopy {
+  min-width: 0;
 }
 
 .heroIntro {
   margin: 13px 0 0;
+
   font-size: 22px;
-  line-height: 1.4;
+  line-height: 1.42;
   font-weight: 700;
 }
 
 .heroCopy h1 {
   margin: 8px 0 25px;
+
   font-family: Georgia, "Times New Roman", serif;
+
   font-size: clamp(76px, 9vw, 120px);
+
   font-weight: 400;
+
   line-height: 0.88;
+
   letter-spacing: -0.04em;
 }
 
 .heroDescription {
   margin: 0;
+
   max-width: 550px;
+
   font-size: 18px;
   font-weight: 600;
+
   line-height: 1.55;
 }
 
 .heroButtons {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 12px;
+
   margin-top: 29px;
 }
 
@@ -220,17 +302,23 @@ img {
 .goldButton,
 .darkOutlineButton {
   display: inline-flex;
+
   min-height: 47px;
+
   align-items: center;
   justify-content: center;
+
   padding: 0 24px;
+
   border-radius: 4px;
+
   font-size: 12px;
   font-weight: 750;
 }
 
 .primaryButton {
   background: var(--ink);
+
   color: white;
 }
 
@@ -244,17 +332,24 @@ img {
 
 .stageLabel {
   display: block;
+
   margin-bottom: 6px;
+
   color: var(--gold);
+
   font-size: 11px;
   font-weight: 800;
 }
 
 .stageRow {
   display: flex;
+
   flex-wrap: wrap;
+
   align-items: center;
+
   gap: 9px;
+
   font-size: 11px;
 }
 
@@ -264,60 +359,85 @@ img {
 
 .stageActive {
   color: var(--gold);
+
   font-weight: 800;
 }
 
-/* PRODUCT */
+/* =========================================================
+   PRODUCT VISUAL
+========================================================= */
 
 .heroProductArea {
   position: relative;
+
   min-height: 500px;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
 }
 
 .productVisual {
   position: relative;
+
   width: 190px;
   height: 465px;
-  filter: drop-shadow(0 28px 24px rgba(0, 0, 0, 0.2));
+
+  flex: 0 0 190px;
+
+  filter:
+    drop-shadow(
+      0 28px 24px rgba(0, 0, 0, 0.20)
+    );
 }
 
 .metalBody {
   position: absolute;
+
   top: 0;
   left: 50%;
+
   width: 122px;
   height: 365px;
+
   transform: translateX(-50%);
+
   border-radius: 60px 60px 10px 10px;
-  background: linear-gradient(
-    90deg,
-    #686762 0%,
-    #b6b3ac 20%,
-    #e5e1d9 40%,
-    #a19e98 58%,
-    #e5e1d9 75%,
-    #6e6d69 100%
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      #686762 0%,
+      #b6b3ac 20%,
+      #e5e1d9 40%,
+      #a19e98 58%,
+      #e5e1d9 75%,
+      #6e6d69 100%
+    );
 }
 
 .capDivider {
   position: absolute;
+
   top: 115px;
   left: 0;
   right: 0;
+
   height: 1px;
+
   background: rgba(0, 0, 0, 0.28);
 }
 
 .metalBody span {
   position: absolute;
+
   left: 0;
   right: 0;
   bottom: 32px;
+
   text-align: center;
+
   font-size: 15px;
   font-weight: 650;
   letter-spacing: 0.05em;
@@ -325,174 +445,285 @@ img {
 
 .woodBase {
   position: absolute;
+
   left: 50%;
   bottom: 0;
+
   width: 122px;
   height: 108px;
+
   transform: translateX(-50%);
+
   border-radius: 0 0 26px 26px;
-  background: linear-gradient(
-    100deg,
-    #3f2517,
-    #86512d 42%,
-    #60381f 70%,
-    #331f15
-  );
+
+  background:
+    linear-gradient(
+      100deg,
+      #3f2517,
+      #86512d 42%,
+      #60381f 70%,
+      #331f15
+    );
 }
 
 .keyHole {
   position: absolute;
+
   right: 16px;
   bottom: 25px;
+
   width: 23px;
   height: 23px;
+
   border: 4px solid #77716a;
+
   border-radius: 50%;
+
   background: #201c17;
 }
 
 .keyRing {
   position: absolute;
+
   right: -58px;
   bottom: -3px;
+
   width: 82px;
   height: 52px;
+
   border: 5px solid #57524c;
+
   border-radius: 50%;
+
   transform: rotate(25deg);
 }
 
 .featureList {
   position: absolute;
-  top: 72px;
+
+  top: 70px;
   right: 0;
+
   width: 205px;
+
   display: grid;
+
   gap: 20px;
 }
 
 .featureItem {
   display: grid;
-  grid-template-columns: 38px minmax(0, 1fr);
+
+  grid-template-columns:
+    38px minmax(0, 1fr);
+
   gap: 10px;
+
   align-items: center;
 }
 
 .featureIcon {
   display: flex;
+
   width: 38px;
   height: 38px;
+
   align-items: center;
   justify-content: center;
+
   border: 1px solid var(--gold-soft);
+
   border-radius: 50%;
+
   color: var(--gold);
 }
 
 .featureItem strong {
   display: block;
+
   font-size: 12px;
 }
 
 .featureItem small {
   display: block;
+
+  margin-top: 1px;
+
   color: var(--muted);
+
   font-size: 10px;
+
   line-height: 1.4;
 }
 
 .conceptNote {
   position: absolute;
+
   right: 0;
   bottom: 5px;
+
   max-width: 260px;
+
   margin: 0;
+
   color: var(--muted);
+
   font-size: 9px;
+
   text-align: right;
 }
 
-/* PROBLEM SOLUTION */
+/* =========================================================
+   PROBLEM / SOLUTION
+   ★ 여기 이전 코드의 핵심 오류 수정
+========================================================= */
 
 .problemSolution {
   display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
   width: 100%;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  overflow: hidden;
 }
 
 .problemBox,
 .solutionBox {
   position: relative;
+
+  width: 100%;
+
+  min-width: 0;
+
   min-height: 390px;
-  padding: 62px max(45px, calc((100vw - 1180px) / 2));
+
+  /*
+    중요:
+    이전처럼 100vw 계산을 쓰지 않음.
+    화면이 커져도 padding이 무한정 커지지 않음.
+  */
+  padding:
+    62px
+    clamp(32px, 5vw, 82px);
+
   overflow: hidden;
+
+  word-break: keep-all;
+
+  overflow-wrap: normal;
 }
 
 .problemBox {
   background: #10100f;
+
   color: white;
 }
 
 .problemBackground {
   position: absolute;
+
   z-index: 0;
+
   top: 0;
   right: 0;
+
   width: 58%;
   height: 100%;
+
   object-fit: cover;
-  opacity: 0.42;
+
+  object-position: center;
+
+  opacity: 0.38;
 }
 
 .problemInner {
   position: relative;
+
   z-index: 1;
-  max-width: 510px;
+
+  width: min(100%, 520px);
+
+  margin-left: auto;
 }
 
 .problemBox h2,
 .solutionBox h2 {
   margin: 14px 0 20px;
+
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(35px, 4vw, 47px);
+
+  font-size: clamp(34px, 3.2vw, 48px);
+
   font-weight: 400;
-  line-height: 1.15;
+
+  line-height: 1.18;
+
+  word-break: keep-all;
+
+  overflow-wrap: normal;
 }
 
 .problemBox p:not(.sectionLabel) {
   max-width: 470px;
+
   color: #d1cbc2;
+
   font-size: 13px;
+
+  line-height: 1.8;
+
+  word-break: keep-all;
 }
 
 .solutionBox {
   background: var(--paper);
 }
 
+.solutionBox > * {
+  max-width: 520px;
+}
+
 .solutionBox > p:not(.sectionLabel) {
-  max-width: 480px;
   color: var(--muted);
+
   font-size: 13px;
+
+  line-height: 1.8;
+
+  word-break: keep-all;
 }
 
 .solutionModes {
   display: flex;
+
   gap: 32px;
+
   margin-top: 30px;
 }
 
 .solutionModes > div {
+  min-width: 55px;
+
   text-align: center;
 }
 
 .solutionModes span {
   display: flex;
+
   width: 43px;
   height: 43px;
+
   align-items: center;
   justify-content: center;
+
   margin: 0 auto 6px;
+
   border: 1px solid var(--line);
+
   border-radius: 50%;
 }
 
@@ -500,7 +731,9 @@ img {
   font-size: 10px;
 }
 
-/* SECTIONS */
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 .section {
   padding: 88px 0;
@@ -512,27 +745,45 @@ img {
 
 .goldHeading {
   margin: 0 0 40px;
+
   color: var(--gold);
+
   font-family: Georgia, "Times New Roman", serif;
+
   font-size: 38px;
   font-weight: 400;
+
   text-align: center;
+
+  word-break: keep-all;
 }
 
-/* EVIDENCE */
+/* =========================================================
+   EVIDENCE
+========================================================= */
 
 .evidenceGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
   overflow: hidden;
+
   border: 1px solid var(--line);
+
   border-radius: 9px;
 }
 
 .evidenceCard {
+  min-width: 0;
+
   min-height: 135px;
+
   padding: 26px 22px;
+
   border-right: 1px solid var(--line);
+
   background: rgba(255, 255, 255, 0.36);
 }
 
@@ -542,59 +793,90 @@ img {
 
 .evidenceCard small {
   display: block;
+
   color: var(--muted);
+
   font-size: 10px;
 }
 
 .evidenceCard strong {
   display: block;
+
   margin-top: 8px;
+
   font-size: 17px;
+
   line-height: 1.4;
+
+  word-break: keep-all;
 }
 
 .smallCenterText {
   margin: 17px 0 0;
+
   color: var(--muted);
+
   font-size: 10px;
+
   text-align: center;
 }
 
-/* TIMELINE */
+/* =========================================================
+   DEVELOPMENT TIMELINE
+========================================================= */
 
 .timeline {
   position: relative;
+
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
   margin-top: 48px;
 }
 
 .timeline::before {
   content: "";
+
   position: absolute;
+
   top: 24px;
   left: 10%;
   right: 10%;
+
   height: 1px;
+
   background: #cbc3b7;
 }
 
 .timelineStep {
   position: relative;
+
   z-index: 1;
+
+  min-width: 0;
+
   text-align: center;
 }
 
 .timelineCircle {
   display: flex;
+
   width: 49px;
   height: 49px;
+
   align-items: center;
   justify-content: center;
+
   margin: 0 auto 14px;
+
   border: 1px solid #bbb3a7;
+
   border-radius: 50%;
+
   background: var(--background);
+
   font-size: 10px;
   font-weight: 750;
 }
@@ -602,65 +884,110 @@ img {
 .timelineStep.complete .timelineCircle,
 .timelineStep.current .timelineCircle {
   border-color: var(--gold);
+
   background: var(--gold);
+
   color: white;
 }
 
 .timelineStep strong {
   display: block;
+
   font-size: 11px;
+
+  word-break: keep-all;
 }
 
 .timelineStep small {
   display: block;
+
   max-width: 150px;
+
   margin: 4px auto 0;
+
   color: var(--muted);
+
   font-size: 9px;
+
   line-height: 1.45;
+
+  word-break: keep-all;
 }
 
 .statusPanel {
   display: grid;
-  grid-template-columns: 1.6fr repeat(4, minmax(0, 1fr));
+
+  grid-template-columns:
+    1.6fr
+    repeat(4, minmax(0, 1fr));
+
   gap: 18px;
+
   margin-top: 43px;
+
   padding: 25px 27px;
+
   border: 1px solid var(--line);
+
   border-radius: 9px;
+
   background: #f0e8dc;
 }
 
 .statusDescription p:not(.sectionLabel) {
   margin: 5px 0 0;
+
   color: var(--muted);
+
   font-size: 10px;
+
+  word-break: keep-all;
+}
+
+.statusItem {
+  min-width: 0;
 }
 
 .statusItem strong {
   display: block;
+
   font-size: 11px;
+
+  word-break: keep-all;
 }
 
 .statusItem small {
   display: block;
+
   color: var(--muted);
+
   font-size: 10px;
 }
 
-/* BUSINESS */
+/* =========================================================
+   BUSINESS
+========================================================= */
 
 .businessGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
   overflow: hidden;
+
   border: 1px solid var(--line);
+
   border-radius: 9px;
 }
 
 .businessCard {
+  min-width: 0;
+
   min-height: 235px;
+
   padding: 31px 28px;
+
   border-right: 1px solid var(--line);
 }
 
@@ -670,86 +997,127 @@ img {
 
 .businessCard h3 {
   margin: 0 0 17px;
+
   color: var(--gold);
+
   font-size: 12px;
 }
 
 .businessCard p,
 .businessCard li {
   color: var(--muted);
+
   font-size: 11px;
+
+  word-break: keep-all;
 }
 
 .businessCard ul {
   display: grid;
+
   gap: 9px;
+
   margin: 0;
+
   padding: 0;
+
   list-style: none;
 }
 
 .businessCard li::before {
   content: "✓";
+
   margin-right: 8px;
+
   color: var(--gold);
+
   font-weight: 800;
 }
 
-/* INVESTMENT */
+/* =========================================================
+   INVESTMENT
+========================================================= */
 
 .investmentSection {
   padding: 72px 0;
+
   background: var(--dark);
+
   color: #f6f0e7;
 }
 
 .investmentGrid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 0.8fr;
+
+  grid-template-columns:
+    1.1fr
+    1fr
+    0.8fr;
+
   gap: 45px;
 }
 
 .investmentSection h2 {
   margin: 9px 0 17px;
+
   font-family: Georgia, "Times New Roman", serif;
+
   font-size: 40px;
+
   font-weight: 400;
+
   line-height: 1.12;
+
+  word-break: keep-all;
 }
 
 .investmentSection p:not(.sectionLabel) {
   max-width: 430px;
+
   color: #beb5a7;
+
   font-size: 11px;
+
+  word-break: keep-all;
 }
 
 .investmentButtons {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 9px;
+
   margin-top: 23px;
 }
 
 .goldButton {
   background: var(--gold);
+
   color: white;
 }
 
 .darkOutlineButton {
   border: 1px solid #555;
+
   color: white;
 }
 
 .fundList {
   display: grid;
+
   gap: 12px;
+
   margin-top: 18px;
 }
 
 .fundList > div {
   display: flex;
+
   gap: 11px;
+
   color: #ddd5c8;
+
   font-size: 11px;
 }
 
@@ -759,7 +1127,9 @@ img {
 
 .investmentStatusCard {
   padding: 21px;
+
   border: 1px solid rgba(255, 255, 255, 0.15);
+
   border-radius: 8px;
 }
 
@@ -773,16 +1143,23 @@ img {
 
 .investmentStatusCard small {
   display: block;
+
   color: #91897c;
+
   font-size: 9px;
 }
 
 .investmentStatusCard strong {
   display: block;
+
   font-size: 12px;
+
+  word-break: keep-all;
 }
 
-/* FOUNDER */
+/* =========================================================
+   FOUNDER
+========================================================= */
 
 .founderSection {
   padding: 65px 0 0;
@@ -790,67 +1167,110 @@ img {
 
 .founderGrid {
   display: grid;
-  grid-template-columns: 190px 0.7fr 1.35fr;
+
+  grid-template-columns:
+    190px
+    0.7fr
+    1.35fr;
+
   gap: 35px;
+
   align-items: center;
 }
 
 .founderPhoto {
   width: 175px;
   height: 175px;
+
   overflow: hidden;
+
   border-radius: 7px;
-  background: #ddd;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ece7df,
+      #d8d2c9
+    );
 }
 
 .founderPhoto img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
+  object-position: center;
 }
 
 .founderGrid h2 {
   margin: 4px 0;
+
   font-family: Georgia, "Times New Roman", serif;
+
   font-size: 34px;
+
   font-weight: 400;
+
   line-height: 1.05;
 }
 
 .founderRole {
   margin: 0;
+
   color: var(--muted);
+
   font-size: 11px;
 }
 
 .founderStory p {
   color: var(--muted);
+
   font-size: 12px;
+
+  word-break: keep-all;
 }
 
-/* WAITLIST */
+/* =========================================================
+   WAITLIST
+========================================================= */
 
 .waitlistBox {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap: 35px;
+
   align-items: center;
+
   margin-top: 50px;
+
   padding: 31px;
+
   border-radius: 10px;
+
   background: #eee4d7;
 }
 
 .waitlistBox h2 {
   margin: 0;
+
   font-family: Georgia, "Times New Roman", serif;
+
   font-size: 29px;
+
   font-weight: 400;
+
+  word-break: keep-all;
 }
 
 .waitlistBox p {
   margin: 3px 0 0;
+
   color: var(--muted);
+
   font-size: 10px;
 }
 
@@ -860,101 +1280,165 @@ img {
 
 .waitlistForm input {
   flex: 1;
+
   min-width: 0;
+
   padding: 14px 15px;
+
   border: 0;
+
   outline: 0;
+
   background: white;
+
   font-size: 11px;
 }
 
 .waitlistForm button {
   width: 130px;
+
   border: 0;
+
   background: var(--gold);
+
   color: white;
+
   font-size: 10px;
   font-weight: 800;
 }
 
 .waitMessage {
   min-height: 16px;
+
   color: var(--gold) !important;
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
   margin-top: 58px;
+
   padding: 21px 0;
+
   background: var(--dark);
+
   color: #8f877b;
+
   font-size: 9px;
 }
 
 .footerGrid {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
+
   gap: 20px;
 }
 
 .footerBrand {
   color: white;
+
   font-size: 16px;
+
   letter-spacing: 0.06em;
 }
 
 .footerGrid nav {
   display: flex;
+
   gap: 19px;
 }
 
-/* TABLET */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1050px) {
+
   .desktopNav {
     display: none;
   }
 
-  .heroGrid,
-  .problemSolution,
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroProductArea {
+    min-height: 620px;
+
+    flex-direction: column;
+  }
+
+  .featureList {
+    position: static;
+
+    width: 100%;
+    max-width: 500px;
+
+    grid-template-columns:
+      1fr 1fr;
+
+    margin-top: 22px;
+  }
+
+  .conceptNote {
+    position: static;
+
+    max-width: 500px;
+
+    margin-top: 15px;
+
+    text-align: center;
+  }
+
+  .problemSolution {
+    grid-template-columns: 1fr;
+  }
+
+  .problemBox,
+  .solutionBox {
+    min-height: 360px;
+
+    padding:
+      58px
+      clamp(30px, 8vw, 80px);
+  }
+
+  .problemInner {
+    width: min(100%, 650px);
+
+    margin: 0 auto;
+  }
+
+  .solutionBox > * {
+    max-width: 650px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .solutionModes {
+    justify-content: flex-start;
+  }
+
   .investmentGrid,
   .founderGrid,
   .waitlistBox {
     grid-template-columns: 1fr;
   }
 
-  .heroProductArea {
-    min-height: 590px;
-  }
-
-  .featureList {
-    position: static;
-    width: 100%;
-    max-width: 480px;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 20px;
-  }
-
-  .heroProductArea {
-    flex-direction: column;
-  }
-
-  .conceptNote {
-    position: static;
-    max-width: 500px;
-    margin-top: 15px;
-    text-align: center;
-  }
-
   .evidenceGrid,
   .businessGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
   }
 
   .timeline {
     grid-template-columns: 1fr;
+
     gap: 22px;
   }
 
@@ -963,19 +1447,25 @@ footer {
   }
 
   .statusPanel {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
   }
 }
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 620px) {
+
   .container {
     width: calc(100% - 30px);
   }
 
   .nav {
     height: 62px;
+
+    gap: 10px;
   }
 
   .brand {
@@ -987,6 +1477,8 @@ footer {
   }
 
   .hero {
+    min-height: auto;
+
     padding-top: 100px;
   }
 
@@ -1002,6 +1494,12 @@ footer {
     font-size: 15px;
   }
 
+  .heroProductArea {
+    min-height: auto;
+
+    padding-top: 30px;
+  }
+
   .featureList,
   .evidenceGrid,
   .businessGrid,
@@ -1012,22 +1510,42 @@ footer {
   .problemBox,
   .solutionBox {
     min-height: auto;
-    padding: 50px 24px;
+
+    padding:
+      48px
+      24px;
   }
 
   .problemBackground {
     width: 100%;
-    opacity: 0.22;
+
+    opacity: 0.20;
+  }
+
+  .problemInner {
+    width: 100%;
+
+    margin: 0;
+  }
+
+  .problemBox h2,
+  .solutionBox h2 {
+    font-size: 34px;
   }
 
   .evidenceCard,
   .businessCard {
     border-right: 0;
+
     border-bottom: 1px solid var(--line);
   }
 
   .solutionModes {
     gap: 17px;
+  }
+
+  .investmentGrid {
+    grid-template-columns: 1fr;
   }
 
   .founderPhoto {
@@ -1037,16 +1555,19 @@ footer {
 
   .waitlistForm {
     flex-direction: column;
+
     gap: 7px;
   }
 
   .waitlistForm button {
     width: 100%;
+
     min-height: 44px;
   }
 
   .footerGrid {
     flex-direction: column;
+
     align-items: flex-start;
   }
 
