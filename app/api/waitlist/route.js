@@ -18,13 +18,25 @@ export async function POST(request) {
       );
     }
 
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (!supabaseUrl || !serviceRoleKey) {
+      console.error("Supabase environment variables are missing.");
+
+      return NextResponse.json(
+        { message: "서버 설정 오류가 발생했습니다." },
+        { status: 500 }
+      );
+    }
+
     const response = await fetch(
-      `${process.env.SUPABASE_URL}/rest/v1/waitlist`,
+      `${supabaseUrl}/rest/v1/waitlist`,
       {
         method: "POST",
         headers: {
-          apikey: process.env.SUPABASE_SECRET_KEY,
-          Authorization: `Bearer ${process.env.SUPABASE_SECRET_KEY}`,
+          apikey: serviceRoleKey,
+          Authorization: `Bearer ${serviceRoleKey}`,
           "Content-Type": "application/json",
           Prefer: "return=minimal",
         },
@@ -34,40 +46,36 @@ export async function POST(request) {
       }
     );
 
-    if (response.status === 409) {
+    if (response.ok) {
       return NextResponse.json(
-        {
-          success: true,
-          duplicate: true,
-          message: "이미 등록된 이메일입니다.",
-        },
+        { message: "등록되었습니다." },
         { status: 200 }
       );
     }
 
-    if (!response.ok) {
-      const error = await response.text();
-      console.error("Supabase error:", error);
+    const errorText = await response.text();
 
+    console.error("Supabase error:", response.status, errorText);
+
+    if (
+      response.status === 409 ||
+      errorText.includes("duplicate key")
+    ) {
       return NextResponse.json(
-        { message: "등록 중 문제가 발생했습니다." },
-        { status: 500 }
+        { message: "이미 등록된 이메일입니다." },
+        { status: 409 }
       );
     }
 
     return NextResponse.json(
-      {
-        success: true,
-        duplicate: false,
-        message: "등록되었습니다. 감사합니다.",
-      },
-      { status: 201 }
+      { message: "등록 중 오류가 발생했습니다. 다시 시도해주세요." },
+      { status: 500 }
     );
   } catch (error) {
-    console.error("Waitlist error:", error);
+    console.error("Waitlist API error:", error);
 
     return NextResponse.json(
-      { message: "서버 오류가 발생했습니다." },
+      { message: "등록 중 오류가 발생했습니다. 다시 시도해주세요." },
       { status: 500 }
     );
   }
