@@ -498,18 +498,70 @@ export default function Home() {
 
   const t = content[lang];
 
-  function submitWaitlist(event) {
+  async function submitWaitlist(event) {
     event.preventDefault();
 
-    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    const cleanEmail = email.trim();
+
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail);
 
     if (!valid) {
       setMessage(t.waitlist.invalid);
       return;
     }
 
-    setMessage(t.waitlist.success);
-    setEmail("");
+    setMessage(
+      lang === "ko"
+        ? "등록 중입니다..."
+        : "Joining..."
+    );
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: cleanEmail,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setMessage(
+          result.message ||
+            t.waitlist.success
+        );
+        setEmail("");
+        return;
+      }
+
+      if (response.status === 409) {
+        setMessage(
+          lang === "ko"
+            ? "이미 등록된 이메일입니다."
+            : "This email is already on the waitlist."
+        );
+        return;
+      }
+
+      setMessage(
+        result.message ||
+          (lang === "ko"
+            ? "등록 중 문제가 발생했습니다. 다시 시도해주세요."
+            : "Something went wrong. Please try again.")
+      );
+    } catch (error) {
+      console.error("Waitlist submit error:", error);
+
+      setMessage(
+        lang === "ko"
+          ? "네트워크 오류가 발생했습니다. 다시 시도해주세요."
+          : "Network error. Please try again."
+      );
+    }
   }
 
   return (
