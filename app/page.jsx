@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [lang, setLang] = useState("ko");
+  const [lang, setLang] = useState("en");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [founderImageError, setFounderImageError] = useState(false);
@@ -14,6 +14,8 @@ export default function Home() {
     if (saved === "ko" || saved === "en") {
       setLang(saved);
       document.documentElement.lang = saved;
+    } else {
+      document.documentElement.lang = "en";
     }
   }, []);
 
@@ -249,7 +251,6 @@ export default function Home() {
         placeholder: "이메일을 입력하세요",
         button: "대기자 등록",
         invalid: "올바른 이메일 주소를 입력해주세요.",
-        success: "등록되었습니다. 감사합니다.",
         note: "중요한 개발 소식만 전달합니다.",
       },
 
@@ -484,7 +485,6 @@ export default function Home() {
         placeholder: "Enter your email",
         button: "Join Waitlist",
         invalid: "Please enter a valid email address.",
-        success: "Thank you. You are on the list.",
         note: "Only meaningful project updates.",
       },
 
@@ -498,11 +498,10 @@ export default function Home() {
 
   const t = content[lang];
 
-  async function submitWaitlist(event) {
+  function submitWaitlist(event) {
     event.preventDefault();
 
     const cleanEmail = email.trim();
-
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail);
 
     if (!valid) {
@@ -510,58 +509,28 @@ export default function Home() {
       return;
     }
 
+    const subject =
+      lang === "ko"
+        ? "KOMEL 대기자 등록"
+        : "KOMEL Waitlist Registration";
+
+    const body =
+      lang === "ko"
+        ? `KOMEL 대기자 등록을 신청합니다.\n\n이메일: ${cleanEmail}`
+        : `I would like to join the KOMEL waitlist.\n\nEmail: ${cleanEmail}`;
+
+    const mailtoUrl =
+      `mailto:roekty@gmail.com?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoUrl;
+
     setMessage(
       lang === "ko"
-        ? "등록 중입니다..."
-        : "Joining..."
+        ? "메일 앱이 열립니다. 보내기를 눌러 등록을 완료해주세요."
+        : "Your mail app will open. Please press Send to complete registration."
     );
-
-    try {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: cleanEmail,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setMessage(
-          result.message ||
-            t.waitlist.success
-        );
-        setEmail("");
-        return;
-      }
-
-      if (response.status === 409) {
-        setMessage(
-          lang === "ko"
-            ? "이미 등록된 이메일입니다."
-            : "This email is already on the waitlist."
-        );
-        return;
-      }
-
-      setMessage(
-        result.message ||
-          (lang === "ko"
-            ? "등록 중 문제가 발생했습니다. 다시 시도해주세요."
-            : "Something went wrong. Please try again.")
-      );
-    } catch (error) {
-      console.error("Waitlist submit error:", error);
-
-      setMessage(
-        lang === "ko"
-          ? "네트워크 오류가 발생했습니다. 다시 시도해주세요."
-          : "Network error. Please try again."
-      );
-    }
   }
 
   return (
@@ -735,7 +704,6 @@ export default function Home() {
                   key={`${item.date}-${index}`}
                 >
                   <div className="logDate">{item.date}</div>
-
                   <div className="logDot" />
 
                   <div className="logContent">
@@ -743,7 +711,6 @@ export default function Home() {
                       <h3>{item.title}</h3>
                       <span>{item.status}</span>
                     </div>
-
                     <p>{item.text}</p>
                   </div>
                 </article>
@@ -785,7 +752,6 @@ export default function Home() {
               <p className="sectionLabel">
                 {t.development.currentTitle}
               </p>
-
               <p>{t.development.currentText}</p>
             </div>
           </div>
@@ -827,7 +793,11 @@ export default function Home() {
 
                   <a
                     href={card.href}
-                    target={card.href.startsWith("http") ? "_blank" : undefined}
+                    target={
+                      card.href.startsWith("http")
+                        ? "_blank"
+                        : undefined
+                    }
                     rel={
                       card.href.startsWith("http")
                         ? "noopener noreferrer"
@@ -860,14 +830,17 @@ export default function Home() {
                   label={t.investment.stage}
                   value={t.investment.stageValue}
                 />
+
                 <Fact
                   label={t.investment.current}
                   value={t.investment.currentValue}
                 />
+
                 <Fact
                   label={t.investment.next}
                   value={t.investment.nextValue}
                 />
+
                 <Fact
                   label={t.investment.amount}
                   value={t.investment.amountValue}
@@ -914,15 +887,22 @@ export default function Home() {
             </div>
 
             <div>
-              <form className="waitlistForm" onSubmit={submitWaitlist}>
+              <form
+                className="waitlistForm"
+                onSubmit={submitWaitlist}
+              >
                 <input
                   type="email"
                   placeholder={t.waitlist.placeholder}
                   value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+                  onChange={(event) =>
+                    setEmail(event.target.value)
+                  }
                 />
 
-                <button type="submit">{t.waitlist.button}</button>
+                <button type="submit">
+                  {t.waitlist.button}
+                </button>
               </form>
 
               <p className="waitMessage">{message}</p>
@@ -941,7 +921,9 @@ export default function Home() {
           <nav>
             <a href="#">{t.footer.privacy}</a>
             <a href="#">{t.footer.terms}</a>
-            <a href="mailto:roekty@gmail.com">{t.footer.contact}</a>
+            <a href="mailto:roekty@gmail.com">
+              {t.footer.contact}
+            </a>
           </nav>
         </div>
       </footer>
@@ -951,7 +933,11 @@ export default function Home() {
 
 function ProductVisual({ large = false }) {
   return (
-    <div className={`productVisual ${large ? "productVisualLarge" : ""}`}>
+    <div
+      className={`productVisual ${
+        large ? "productVisualLarge" : ""
+      }`}
+    >
       <div className="metalBody">
         <div className="capLine" />
         <span>SVAS</span>
