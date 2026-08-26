@@ -1,3 +1,4 @@
+```jsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -192,10 +193,11 @@ export default function Home() {
         cards: [
           {
             number: "01",
-            title: "관심 등록",
-            text: "제품 개발과 출시 진행상황을 가장 먼저 받아보세요.",
-            button: "대기자 등록",
-            href: "#waitlist",
+            type: "whatsapp",
+            title: "WhatsApp 문의",
+            text: "WhatsApp을 통해 KOMEL 제품, 개발 및 파트너십에 대해 빠르게 문의하세요.",
+            button: "WhatsApp: +82 10-5836-1236",
+            href: "https://wa.me/821058361236",
           },
           {
             number: "02",
@@ -426,10 +428,11 @@ export default function Home() {
         cards: [
           {
             number: "01",
-            title: "Stay in touch",
-            text: "Receive product-development and launch updates first.",
-            button: "Join Waitlist",
-            href: "#waitlist",
+            type: "whatsapp",
+            title: "Chat on WhatsApp",
+            text: "Quickly connect with us via WhatsApp for KOMEL, development, partnership, or general inquiries.",
+            button: "WhatsApp: +82 10-5836-1236",
+            href: "https://wa.me/821058361236",
           },
           {
             number: "02",
@@ -519,10 +522,9 @@ export default function Home() {
         ? `KOMEL 대기자 등록을 신청합니다.\n\n이메일: ${cleanEmail}`
         : `I would like to join the KOMEL waitlist.\n\nEmail: ${cleanEmail}`;
 
-    const mailtoUrl =
-      `mailto:roekty@gmail.com?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:roekty@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailtoUrl;
 
@@ -786,8 +788,27 @@ export default function Home() {
 
             <div className="supportGrid">
               {t.support.cards.map((card) => (
-                <article className="supportCard" key={card.number}>
+                <article
+                  className={`supportCard ${
+                    card.type === "whatsapp" ? "whatsappCard" : ""
+                  }`}
+                  key={card.number}
+                >
                   <span className="supportNumber">{card.number}</span>
+
+                  {card.type === "whatsapp" && (
+                    <div className="whatsappIcon" aria-hidden="true">
+                      <svg
+                        viewBox="0 0 32 32"
+                        width="28"
+                        height="28"
+                        fill="currentColor"
+                      >
+                        <path d="M16.04 3C8.85 3 3 8.7 3 15.72c0 2.24.6 4.43 1.74 6.35L3 29l7.12-1.82a13.2 13.2 0 0 0 5.91 1.42h.01C23.23 28.6 29 22.9 29 15.88 29 8.86 23.23 3 16.04 3Zm0 23.45a11 11 0 0 1-5.6-1.5l-.4-.24-4.22 1.08 1.13-4.02-.27-.41a10.46 10.46 0 0 1-1.65-5.64c0-5.8 4.94-10.52 11.02-10.52 6.07 0 11.01 4.72 11.01 10.52 0 5.8-4.94 10.73-11.02 10.73Zm6.05-7.91c-.33-.16-1.96-.95-2.27-1.06-.3-.1-.52-.16-.74.16-.22.32-.86 1.06-1.05 1.28-.19.22-.39.24-.72.08-.33-.16-1.4-.5-2.67-1.6a10.1 10.1 0 0 1-1.85-2.25c-.19-.32-.02-.5.14-.66.15-.15.33-.38.5-.57.16-.19.22-.32.33-.54.11-.21.05-.4-.03-.57-.08-.16-.74-1.74-1.02-2.38-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.58.08-.88.4-.3.33-1.16 1.12-1.16 2.72 0 1.6 1.19 3.15 1.36 3.37.16.21 2.34 3.51 5.67 4.92.79.34 1.41.54 1.89.69.79.25 1.51.21 2.08.13.63-.09 1.96-.79 2.24-1.55.27-.76.27-1.41.19-1.55-.08-.13-.3-.21-.63-.37Z" />
+                      </svg>
+                    </div>
+                  )}
+
                   <h3>{card.title}</h3>
                   <p>{card.text}</p>
 
@@ -803,8 +824,19 @@ export default function Home() {
                         ? "noopener noreferrer"
                         : undefined
                     }
+                    className={
+                      card.type === "whatsapp"
+                        ? "whatsappButton"
+                        : undefined
+                    }
                   >
-                    {card.button} →
+                    {card.button}
+
+                    {card.type === "whatsapp" ? (
+                      <span className="whatsappArrow">→</span>
+                    ) : (
+                      " →"
+                    )}
                   </a>
                 </article>
               ))}
@@ -959,3 +991,4 @@ function Fact({ label, value }) {
     </div>
   );
 }
+```
