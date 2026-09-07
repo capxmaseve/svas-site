@@ -20,7 +20,7 @@ export const metadata = {
 
     images: [
       {
-        url: "/og-svas.jpg",
+        url: "/og-svas.png",
         width: 1200,
         height: 630,
         alt: "KOMEL | SVAS",
@@ -33,7 +33,7 @@ export const metadata = {
     title: "KOMEL | SVAS",
     description:
       "아이디어에서 실제 제품으로. SVAS가 개발 중인 퍼스널 향 오브제 KOMEL.",
-    images: ["/og-svas.jpg"],
+    images: ["/og-svas.png"],
   },
 };
 
